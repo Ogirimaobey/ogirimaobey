@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books | Ogirima Obey</title>
+    <style>
+        /* 1. Global Page Resets & Typography */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            overflow-x: hidden; 
+        }
+        
+        /* 2. Main Container Setup */
+        .page-container { 
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 48px 24px; 
+            box-sizing: border-box; 
+        }
+
+        /* 3. Section Header Styles */
+        .section-header {
+            margin-bottom: 48px;
+        }
+        .section-tag {
+            font-size: 12px; 
+            font-weight: bold; 
+            letter-spacing: 3px; 
+            color: #E04A33; 
+            text-transform: uppercase; 
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-size: 36px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            margin: 0; 
+            letter-spacing: -1px;
+        }
+
+        /* 4. Book Grid - Mobile-First (Single Column Stack) */
+        .book-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+            width: 100%;
+        }
+
+        /* Individual Book Card Layout */
+        .book-card {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            background-color: #FFFFFF;
+        }
+
+        /* Book Cover Container with Studio Grey Canvas styling */
+        .book-cover-wrapper {
+            background-color: #E5E5E5;
+            width: 100%;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+        }
+        .book-cover-img {
+            max-height: 320px;
+            width: auto;
+            object-fit: contain;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .book-card:hover .book-cover-img {
+            transform: translateY(-8px);
+        }
+
+        /* Book Text Details Block */
+        .book-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .book-title {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+        .book-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #E04A33;
+            margin-bottom: 16px;
+        }
+        .book-description {
+            font-size: 15px;
+            color: #4A4A4A;
+            line-height: 1.6;
+            margin: 0 0 24px 0;
+        }
+
+        /* Direct Full-Width Purchase Button for Mobile */
+        .buy-btn {
+            display: block;
+            text-align: center;
+            background-color: #000000;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 16px 32px;
+            font-weight: bold;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .buy-btn:hover {
+            background-color: #E04A33;
+        }
+
+        /* 5. Laptop-Fitted Balanced Layout Adjustments */
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 48px;
+            }
+            .book-grid {
+                gap: 48px;
+            }
+            .book-card {
+                flex-direction: row;
+                gap: 48px;
+            }
+            .book-cover-wrapper {
+                width: 40%;
+                padding: 60px 40px;
+            }
+            .book-details {
+                width: 60%;
+                padding-right: 40px;
+            }
+            .book-title {
+                font-size: 32px;
+            }
+            .buy-btn {
+                width: fit-content;
+                padding: 14px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Target placeholder element where main.js injects components/header.html -->
+    <div id="global-header"></div>
+
+    <main class="page-container">
+        
+        <!-- Page Title Header Section -->
+        <section class="section-header">
+            <div class="section-tag">Literary Works & Frameworks</div>
+            <h1 class="section-title">The Literature Archive</h1>
+        </section>
+
+        <!-- Dynamic Collection Grid Container -->
+        <section class="book-grid">
+
+            <!-- Book Entry 1 -->
+            <article class="book-card">
+                <div class="book-cover-wrapper">
+                    <!-- Replace with your actual rendered book mock image path -->
+                    <img src="images/comprehensive-man-mock.png" alt="The Comprehensive Man Cover" class="book-cover-img">
+                </div>
+                <div class="book-details">
+                    <h2 class="book-title">The Comprehensive Man</h2>
+                    <div class="book-price">₦10,000</div>
+                    <p class="book-description">
+                        A definitive masterwork engineered to dismantle hyper-independent modern mentalities. This framework details the exact architecture needed to balance raw power with profound character growth, leadership, and emotional composition under God.
+                    </p>
+                    <a href="https://wa.me/2349025643150?text=Hello%20Ogirima,%20I%20want%20to%20order%20The%20Comprehensive%20Man" target="_blank" class="buy-btn">
+                        Order Via WhatsApp
+                    </a>
+                </div>
+            </article>
+
+            <!-- Book Entry 2 -->
+            <article class="book-card">
+                <div class="book-cover-wrapper">
+                    <!-- Replace with your actual rendered book mock image path -->
+                    <img src="images/from-idea-to-empire-mock.png" alt="From Idea to Empire Cover" class="book-cover-img">
+                </div>
+                <div class="book-details">
+                    <h2 class="book-title">From Idea To Empire</h2>
+                    <div class="book-price">₦12,500</div>
+                    <p class="book-description">
+                        The definitive tactical manual for African venture builder models. Learn how to construct fundable blueprints, launch world-class digital systems with absolute lean capital, and drive reliable, scalable monthly recurring revenue streams.
+                    </p>
+                    <a href="https://wa.me/2349025643150?text=Hello%20Ogirima,%20I%20want%20to%20order%20From%20Idea%20to%20Empire" target="_blank" class="buy-btn">
+                        Order Via WhatsApp
+                    </a>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- Connects to our dynamic global layout engine script -->
+    <script src="js/main.js"></script>
+</body>
+</html>
