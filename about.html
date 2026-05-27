@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Ogirima Obey</title>
+    <style>
+        /* 1. Global Page Resets & Typography */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            overflow-x: hidden; 
+        }
+        
+        /* 2. Main Container Setup */
+        .page-container { 
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 48px 24px; 
+            box-sizing: border-box; 
+        }
+
+        /* 3. Section Header Styles */
+        .section-header {
+            margin-bottom: 64px;
+        }
+        .section-tag {
+            font-size: 12px; 
+            font-weight: bold; 
+            letter-spacing: 3px; 
+            color: #E04A33; 
+            text-transform: uppercase; 
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-size: 36px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            margin: 0; 
+            letter-spacing: -1px;
+            line-height: 1.05;
+        }
+
+        /* 4. Layout Sections - Mobile First Layout Block */
+        .bio-section {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            margin-bottom: 80px;
+        }
+        
+        /* Image Component Styles */
+        .image-panel {
+            background-color: #E5E5E5;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            border-radius: 4px;
+        }
+        .panel-img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        /* Bio Content Text Formatting */
+        .bio-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .bio-lead {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.4;
+            margin-0 0 24px 0;
+            color: #000000;
+        }
+        .bio-text {
+            font-size: 16px;
+            color: #4A4A4A;
+            line-height: 1.7;
+            margin: 0 0 24px 0;
+        }
+
+        /* Sub-sections Grid for Pillars */
+        .pillars-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+        }
+        .pillar-row {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .pillar-title {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin: 0 0 16px 0;
+        }
+        .pillar-title span {
+            color: #E04A33;
+        }
+
+        /* Core Call to Action Link button */
+        .action-link {
+            display: inline-block;
+            background-color: #000000;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 14px 32px;
+            font-weight: bold;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+        .action-link:hover {
+            background-color: #E04A33;
+        }
+
+        /* 5. Laptop-Fitted Balanced Layout Adjustments */
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 56px;
+            }
+            .bio-section {
+                flex-direction: row;
+                gap: 64px;
+                align-items: center;
+            }
+            .bio-section.reverse {
+                flex-direction: row-reverse;
+            }
+            .image-panel {
+                width: 45%;
+                padding: 40px;
+            }
+            .bio-content {
+                width: 55%;
+            }
+            .pillar-row {
+                flex-direction: row;
+                gap: 64px;
+                align-items: center;
+            }
+            .pillar-media {
+                width: 45%;
+            }
+            .pillar-text-block {
+                width: 55%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Target placeholder element where main.js injects components/header.html -->
+    <div id="global-header"></div>
+
+    <main class="page-container">
+        
+        <!-- Page Title Header Section -->
+        <section class="section-header">
+            <div class="section-tag">The Profile</div>
+            <h1 class="section-title">Ogirima Obey</h1>
+        </section>
+
+        <!-- Profile Intro Section (Image 1 Split) -->
+        <section class="bio-section">
+            <div class="image-panel">
+                <!-- Profile Image 1 Reference -->
+                <img src="images/WhatsApp Image 2026-05-27 at 03.32.36.jpeg" alt="Ogirima Obey Executive Portrait" class="panel-img">
+            </div>
+            <div class="bio-content">
+                <p class="bio-lead">
+                    Venture Builder, Healthtech Innovator, and President of the Men Aflame Network Global.
+                </p>
+                <p class="bio-text">
+                    Ogirima Obey operates at the critical intersection of systemic leadership, technological innovation, and human transformation. Driven by an unyielding passion for administrative excellence and leadership development, he dedicates his life to building global frameworks that empower organizations and unlock the true potential of men across generations.
+                </p>
+                <p class="bio-text">
+                    As a visionary builder, he challenges traditional limitations by designing clinical tech models and leading dynamic ecosystems that require deep strategic execution and world-class structural discipline.
+                </p>
+            </div>
+        </section>
+
+        <!-- Pillars System (Alternating Multi-column grids) -->
+        <section class="pillars-grid">
+            
+            <hr style="border: 0; border-top: 1px solid #E5E5E5; margin: 0;">
+
+            <!-- Pillar 1: Global Leadership Ecosystem -->
+            <article class="pillar-row">
+                <div class="pillar-text-block" style="flex: 1;">
+                    <h2 class="pillar-title">Global Leadership & <span>Men Aflame Network</span></h2>
+                    <p class="bio-text">
+                        As the Global President of the Men Aflame Network (MAN), Ogirima leads a fast-growing, high-trust digital and physical academy. The network serves as a foundational safe space for hundreds of ambitious young men across the globe, providing the rigorous accountability, character blueprints, and spiritual execution required to rise above societal conditioning and build sustainable legacies.
+                    </p>
+                    <a href="https://wa.me/2349025643150?text=Hello%20Ogirima,%20I%20want%20to%20join%20the%20Men%20Aflame%20Network." target="_blank" class="action-link">
+                        Join the Brotherhood
+                    </a>
+                </div>
+            </article>
+
+            <hr style="border: 0; border-top: 1px solid #E5E5E5; margin: 0;">
+
+            <!-- Pillar 2: Keynote Speaking & Life Coaching (Image 2 Split) -->
+            <article class="pillar-row">
+                <!-- Image 2 placed on the side for laptop layouts -->
+                <div class="image-panel pillar-media">
+                    <!-- Presentation Image 2 Reference -->
+                    <img src="images/WhatsApp Image 2026-05-27 at 03.33.40.jpeg" alt="Ogirima Obey Keynote Presentation" class="panel-img">
+                </div>
+                <div class="pillar-text-block">
+                    <h2 class="pillar-title">Keynote Speaking & <span>Life Coaching</span></h2>
+                    <p class="bio-text">
+                        Recognized as an authoritative keynote speaker and strategic life coach, Ogirima steps onto premium stages to deliver high-impact insights on systemic leadership, structural discipline, and behavioral change. His coaching programs are meticulously designed to transform internal blockages into raw professional output, mentoring leaders to dominate their focus areas with exceptional composure.
+                    </p>
+                    <a href="https://wa.me/2349025643150?text=Hello%20Ogirima,%20I%20want%20to%20book%20you%20for%20a%20speaking/coaching%20session." target="_blank" class="action-link">
+                        Book Speaking Session
+                    </a>
+                </div>
+            </article>
+
+            <hr style="border: 0; border-top: 1px solid #E5E5E5; margin: 0;">
+
+            <!-- Pillar 3: Healthtech & Publications -->
+            <article class="pillar-row">
+                <div class="pillar-text-block" style="flex: 1;">
+                    <h2 class="pillar-title">Venture Design & <span>Literature Archive</span></h2>
+                    <p class="bio-text">
+                        In the technology landscape, Ogirima is the founder of <strong>AfriDam AI</strong>, an advanced healthtech platform engineered specifically to provide precise dermatological diagnostics and safe skincare parameters for melanin-rich skin. 
+                    </p>
+                    <p class="bio-text">
+                        As an established author, his literature acts as a blueprint for human optimization. Having already published <em>Dear Future Wife</em> and the business guide <em>From Idea to Empire</em>, he is currently authoring his highly anticipated third book, <strong>DETOX</strong>—a definitive blueprint detailing the behavioral science and spiritual frameworks required to break free from negative habits and deep-seated addictions.
+                    </p>
+                    <a href="books.html" class="action-link">Explore Literature</a>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- Connects to our dynamic global layout engine script -->
+    <script src="js/main.js"></script>
+</body>
+</html>
