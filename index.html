@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ogirima Obey | Personal Brand & Venture Builder</title>
+    <style>
+        body { margin: 0; padding: 0; font-family: sans-serif; background-color: #FFFFFF; color: #000000; overflow-x: hidden; }
+        .hero-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-direction: column; box-sizing: border-box; min-h: calc(100vh - 80px); }
+        .hero-text { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 10; }
+        .hero-tag { font-size: 12px; font-weight: bold; letter-spacing: 3px; color: #E04A33; text-transform: uppercase; margin-bottom: 12px; }
+        .hero-title { font-size: 48px; font-weight: 900; line-height: 0.95; text-transform: uppercase; margin: 0 0 24px 0; }
+        .hero-title span { color: #E04A33; }
+        .hero-desc { font-size: 16px; color: #4A4A4A; max-width: 450px; line-height: 1.6; margin-bottom: 32px; }
+        .hero-btn { display: inline-block; border: 2px solid #000000; color: #000000; text-decoration: none; padding: 12px 32px; font-weight: bold; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; width: fit-content; }
+        .hero-btn:hover { background-color: #000000; color: #FFFFFF; }
+        .hero-image-area { width: 100%; position: relative; min-height: 400px; display: flex; align-items: flex-end; justify-content: center; margin-top: 40px; }
+        .studio-bg { absolute; inset: 0; width: 100%; height: 85%; background-color: #E5E5E5; position: absolute; bottom: 0; left: 0; z-index: 1; }
+        .portrait-img { relative; z-index: 2; max-height: 500px; width: auto; object-fit: contain; }
+
+        /* Laptop-Fitted Balanced View Layout Grid */
+        @media (min-width: 768px) {
+            .hero-container { flex-direction: row; align-items: center; padding: 0 24px; }
+            .hero-text { width: 55%; padding-right: 40px; }
+            .hero-title { font-size: 72px; }
+            .hero-image-area { width: 45%; min-height: 600px; margin-top: 0; }
+            .studio-bg { height: 100%; top: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- This empty element dynamically pulls in header.html -->
+    <div id="global-header"></div>
+
+    <main class="hero-container">
+        <!-- Left Side Layout Content -->
+        <div class="hero-text">
+            <div class="hero-tag">Personal Brand & Venture Builder</div>
+            <h1 class="hero-title">TEACH.<br>TRAIN.<br><span>TRANSFORM.</span></h1>
+            <p class="hero-desc">Raising a new generation of disciplined, visionary, and comprehensive men. Building unshakeable character, legacy, and digital empires across Africa.</p>
+            <a href="https://wa.me/2349025643150" target="_blank" class="hero-btn">Join Men Aflame</a>
+        </div>
+
+        <!-- Right Side Asymmetric Portrait ( watermarked_img_16727567883548200361.png format ) -->
+        <div class="hero-image-area">
+            <div class="studio-bg"></div>
+            <img src="images/ogirima-obey-studio.png" alt="Ogirima Obey Studio Portrait" class="portrait-img">
+        </div>
+    </main>
+
+    <!-- Global Application Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>
