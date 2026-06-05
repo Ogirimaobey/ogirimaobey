@@ -5,52 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ogirima Obey | Personal Brand & Venture Builder</title>
     
-    <!-- 1. Universal Favicon Mapping Configuration (Fixed Root Path) -->
+    <!-- 1. Fixed Favicon Configuration (Direct Root Repository Mapping) -->
     <link rel="icon" type="image/jpeg" href="WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
     <link rel="apple-touch-icon" href="WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
 
     <style>
-        /* 2. Global Core Variables & Reset Systems */
+        /* 2. Global Core Variables & Fluid System Setup */
         :root {
             --pure-white: #FFFFFF;
-            --matte-black: #000000;
+            --matte-black: #0A0A0A;
+            --deep-charcoal: #141416;
             --terracotta: #E04A33;
             --studio-grey: #F5F5F7;
-            --text-muted: #4A4A4A;
-            --border-light: #E5E5E5;
+            --text-muted: #515154;
+            --border-dark: #1F1F22;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body { 
             margin: 0; 
             padding: 0; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: var(--pure-white); 
-            color: var(--matte-black); 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: var(--matte-black); 
+            color: var(--pure-white); 
             overflow-x: hidden; 
+            line-height: 1.5;
         }
 
-        /* 3. Animation Framework Classes */
+        /* 3. High-Performance Background Canvas System */
+        #ambient-fire-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.45;
+        }
+
+        /* 4. Scroll Reveal Framework Engine */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateY(40px) scale(0.98);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
-        /* 4. Hero Module Layout (Mobile First) */
+        /* 5. Main Hero Container (Mobile First Layout Engine) */
         .hero-container { 
             width: 100%; 
             max-width: 1200px; 
             margin: 0 auto; 
-            padding: 40px 24px; 
+            padding: 120px 24px 60px 24px; 
             display: flex; 
             flex-direction: column; 
-            box-sizing: border-box; 
-            min-height: calc(100vh - 140px); 
+            min-height: 100vh;
+            position: relative;
+            z-index: 10;
         }
 
         .hero-text { 
@@ -58,92 +77,107 @@
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
-            z-index: 10; 
         }
 
         .hero-tag { 
             font-size: 11px; 
             font-weight: 800; 
-            letter-spacing: 4px; 
+            letter-spacing: 5px; 
             color: var(--terracotta); 
             text-transform: uppercase; 
-            margin-bottom: 16px; 
+            margin-bottom: 24px; 
         }
 
         .hero-title { 
-            font-size: 44px; 
+            font-size: clamp(46px, 10vw, 92px); 
             font-weight: 900; 
-            line-height: 0.95; 
+            line-height: 0.9; 
             text-transform: uppercase; 
-            margin: 0 0 24px 0; 
-            letter-spacing: -1px;
+            margin: 0 0 28px 0; 
+            letter-spacing: -2px;
         }
 
         .hero-title span { 
-            color: var(--terracotta); 
+            color: var(--terracotta);
+            display: inline-block;
+            position: relative;
         }
 
         .hero-desc { 
-            font-size: 16px; 
-            color: var(--text-muted); 
-            max-width: 460px; 
+            font-size: clamp(16px, 2vw, 19px); 
+            color: #A1A1A6; 
+            max-width: 520px; 
             line-height: 1.6; 
-            margin-bottom: 36px; 
+            margin: 0 0 44px 0; 
         }
 
         .hero-btn { 
             display: inline-block; 
-            border: 2px solid var(--matte-black); 
-            color: var(--matte-black); 
+            border: 2px solid var(--terracotta); 
+            color: var(--pure-white); 
+            background-color: var(--terracotta);
             text-decoration: none; 
-            padding: 14px 36px; 
-            font-weight: bold; 
+            padding: 18px 44px; 
+            font-weight: 800; 
             font-size: 13px; 
-            letter-spacing: 1px; 
+            letter-spacing: 2px; 
             text-transform: uppercase; 
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); 
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
             width: fit-content; 
+            box-shadow: 0 10px 30px rgba(224, 74, 51, 0.2);
         }
 
         .hero-btn:hover { 
-            background-color: var(--matte-black); 
-            color: var(--pure-white); 
+            background-color: transparent;
+            color: var(--terracotta);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(224, 74, 51, 0.4);
         }
 
         .hero-image-area { 
             width: 100%; 
             position: relative; 
-            min-height: 400px; 
+            min-height: 420px; 
             display: flex; 
             align-items: flex-end; 
             justify-content: center; 
-            margin-top: 48px; 
+            margin-top: 64px; 
         }
 
         .studio-bg { 
             width: 100%; 
-            height: 85%; 
-            background-color: var(--studio-grey); 
+            height: 90%; 
+            background-color: var(--deep-charcoal); 
             position: absolute; 
             bottom: 0; 
             left: 0; 
             z-index: 1; 
+            border: 1px solid var(--border-dark);
         }
 
         .portrait-img { 
             position: relative; 
             z-index: 2; 
-            max-height: 650px; 
+            max-height: 560px; 
             width: 100%;
             height: auto;
             object-fit: cover; 
+            filter: grayscale(100%);
+            transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* 5. Detailed Review Layout Section */
+        .hero-image-area:hover .portrait-img {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        /* 6. Executive Review Layout Block */
         .review-section {
-            background-color: var(--studio-grey);
-            padding: 80px 24px;
-            box-sizing: border-box;
+            background-color: #0F0F11;
+            padding: 120px 24px;
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid var(--border-dark);
         }
 
         .review-wrapper {
@@ -151,23 +185,30 @@
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 56px;
         }
 
         .review-img-box {
             width: 100%;
-            background-color: #E5E5E5;
-            border-radius: 4px;
+            background-color: var(--deep-charcoal);
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-dark);
+            position: relative;
         }
 
         .review-img {
             width: 100%;
             height: auto;
-            max-height: 500px;
+            max-height: 540px;
             object-fit: cover;
             display: block;
+            filter: grayscale(100%);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .review-img-box:hover .review-img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
         }
 
         .review-content {
@@ -180,32 +221,33 @@
             font-size: 11px;
             font-weight: 800;
             color: var(--terracotta);
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .review-quote {
-            font-size: 24px;
-            font-weight: 800;
-            line-height: 1.3;
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 900;
+            line-height: 1.1;
             text-transform: uppercase;
-            margin: 0 0 24px 0;
-            letter-spacing: -0.5px;
+            margin: 0 0 28px 0;
+            letter-spacing: -1px;
         }
 
         .review-text {
             font-size: 16px;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 20px;
+            color: #A1A1A6;
+            line-height: 1.8;
+            margin-bottom: 24px;
         }
 
-        /* 6. New Launch Focus Feature Module (DETOX Campaign) */
+        /* 7. Strategic Focus Feature Module (DETOX Campaign Grid) */
         .campaign-section {
-            background-color: var(--pure-white);
-            padding: 80px 24px;
-            box-sizing: border-box;
+            background-color: var(--matte-black);
+            padding: 120px 24px;
+            position: relative;
+            z-index: 10;
         }
 
         .campaign-container {
@@ -213,19 +255,20 @@
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 48px;
+            gap: 64px;
         }
 
         .campaign-meta {
-            max-width: 600px;
+            max-width: 650px;
         }
 
         .campaign-title {
-            font-size: 38px;
+            font-size: clamp(34px, 5vw, 56px);
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: -1px;
-            margin: 12px 0;
+            letter-spacing: -1.5px;
+            margin: 16px 0;
+            line-height: 1.05;
         }
 
         .campaign-title span {
@@ -235,63 +278,71 @@
         .campaign-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 32px;
+            gap: 24px;
         }
 
         .campaign-card {
-            border-left: 3px solid var(--matte-black);
-            padding-left: 24px;
+            background-color: var(--deep-charcoal);
+            border: 1px solid var(--border-dark);
+            padding: 40px 32px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .campaign-card:hover {
+            border-color: var(--terracotta);
+            transform: translateY(-6px);
         }
 
         .campaign-card.highlight {
-            border-left-color: var(--terracotta);
+            background: linear-gradient(180deg, var(--deep-charcoal) 0%, rgba(224,74,51,0.04) 100%);
+            border-bottom: 2px solid var(--terracotta);
         }
 
         .campaign-card h3 {
-            font-size: 18px;
-            font-weight: 800;
+            font-size: 20px;
+            font-weight: 900;
             text-transform: uppercase;
-            margin: 0 0 12px 0;
+            margin: 0 0 16px 0;
             letter-spacing: -0.5px;
         }
 
         .campaign-card p {
             font-size: 15px;
-            color: var(--text-muted);
-            line-height: 1.6;
+            color: #A1A1A6;
+            line-height: 1.7;
             margin: 0;
         }
 
-        /* 7. Statement Callout Grid Canvas Block */
+        /* 8. Statement Callout Layout Canvas */
         .statement-canvas {
-            background-color: var(--matte-black);
-            color: var(--pure-white);
-            padding: 100px 24px;
-            box-sizing: border-box;
+            background: linear-gradient(180deg, var(--matte-black) 0%, #060607 100%);
+            padding: 140px 24px;
             text-align: center;
             position: relative;
+            z-index: 10;
+            border-top: 1px solid var(--border-dark);
         }
 
         .statement-wrapper {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .statement-tag {
             font-size: 11px;
-            font-weight: bold;
+            font-weight: 800;
             color: var(--terracotta);
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
 
         .statement-quote {
-            font-size: 26px;
+            font-size: clamp(26px, 4vw, 48px);
             font-weight: 900;
-            line-height: 1.4;
+            line-height: 1.3;
             text-transform: uppercase;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
             margin: 0;
         }
 
@@ -299,43 +350,36 @@
             color: var(--terracotta);
         }
 
-        /* 8. Laptop-Fitted Balanced View Layout Adjustments */
+        /* 9. Laptop-Fitted Balanced Layout Configurations Override */
         @media (min-width: 768px) {
             .hero-container { 
                 flex-direction: row; 
                 align-items: center; 
-                padding: 60px 24px;
-                min-height: calc(100vh - 90px);
+                padding: 120px 40px 60px 40px;
             }
             
             .hero-text { 
-                width: 50%; 
-                padding-right: 60px; 
-            }
-            
-            .hero-title { 
-                font-size: 76px; 
+                width: 52%; 
+                padding-right: 48px; 
             }
             
             .hero-image-area { 
-                width: 50%; 
-                min-height: 650px; 
+                width: 48%; 
+                min-height: 680px; 
                 margin-top: 0; 
             }
             
             .studio-bg { 
                 height: 100%; 
-                top: 0; 
             }
             
             .portrait-img {
-                max-height: 650px;
+                max-height: 680px;
             }
 
-            /* Review Grid Expansion Layout */
             .review-wrapper {
                 flex-direction: row;
-                gap: 80px;
+                gap: 72px;
                 align-items: center;
             }
             
@@ -346,34 +390,27 @@
             .review-content {
                 width: 55%;
             }
-            
-            .review-quote {
-                font-size: 36px;
-            }
 
-            /* Campaign Module Layout Grid Expansion */
             .campaign-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 40px;
+                gap: 28px;
             }
 
-            /* Statement Callout Size Shift */
             .statement-canvas {
-                padding: 140px 24px;
-            }
-            
-            .statement-quote {
-                font-size: 38px;
+                padding: 180px 40px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Target placeholder element where main.js automatically injects your real black header.html -->
+    <!-- Native Dynamic Background Fire Particle System Canvas -->
+    <canvas id="ambient-fire-canvas"></canvas>
+
+    <!-- Universal Mount Placeholder Element for dynamic main.js injection -->
     <div id="global-header"></div>
 
-    <!-- Section 1: Hero Header Layout -->
+    <!-- Section 1: Hero Header Layout Mapping -->
     <main class="hero-container">
         <div class="hero-text">
             <div class="hero-tag">Personal Brand & Venture Builder</div>
@@ -382,14 +419,14 @@
             <a href="https://wa.me/2349025643150" target="_blank" class="hero-btn">Join Men Aflame</a>
         </div>
 
-        <!-- Right Side Profile Panel (Fixed Path to your root repository folder) -->
+        <!-- Right Side Profile Area with fixed image path links -->
         <div class="hero-image-area">
             <div class="studio-bg"></div>
             <img src="WhatsApp Image 2026-05-27 at 03.47.04.jpeg" alt="Ogirima Obey Studio Close-Up" class="portrait-img">
         </div>
     </main>
 
-    <!-- Section 2: Detailed Executive Review Blueprint Component (Fixed Path to root folder) -->
+    <!-- Section 2: Executive Paradigm Layout Block -->
     <section class="review-section">
         <div class="review-wrapper reveal">
             <div class="review-img-box">
@@ -444,33 +481,80 @@
         </div>
     </section>
 
-    <!-- Global Application & Animation Logic Engine Script -->
+    <!-- Interactive Layer: Ambient Fire Particle System Execution Engine -->
     <script>
+        const canvas = document.getElementById('ambient-fire-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let particles = [];
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 100;
+                this.size = Math.random() * 3 + 1;
+                this.speedY = Math.random() * 1.5 + 0.5;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.opacity = Math.random() * 0.5 + 0.2;
+                // Terracotta Orange drift variants
+                this.color = Math.random() > 0.4 ? '#E04A33' : '#FF6B53';
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                if (this.opacity > 0.005) this.opacity -= 0.002;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function handleParticles() {
+            if (particles.length < 60) {
+                particles.push(new Particle());
+            }
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].y < 0 || particles[i].opacity <= 0) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            handleParticles();
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // Native Intersection Observer Framework for Scroll Animations
         document.addEventListener("DOMContentLoaded", () => {
             const scrollElements = document.querySelectorAll(".reveal");
-
-            const elementInView = (el, dividend = 1) => {
-                const elementTop = el.getBoundingClientRect().top;
-                return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
-            };
-
-            const displayScrollElement = (element) => {
-                element.classList.add("active");
-            };
-
-            const handleScrollAnimation = () => {
-                scrollElements.forEach((el) => {
-                    if (elementInView(el, 1.15)) {
-                        displayScrollElement(el);
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
                     }
                 });
-            };
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
-            window.addEventListener("scroll", () => { 
-                handleScrollAnimation();
-            });
-
-            setTimeout(handleScrollAnimation, 150);
+            scrollElements.forEach(el => observer.observe(el));
         });
     </script>
     <script src="js/main.js"></script>
