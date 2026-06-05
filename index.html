@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ogirima Obey | Personal Brand & Venture Builder</title>
     
-    <!-- 1. Universal Favicon Mapping Configuration -->
-    <link rel="icon" type="image/jpeg" href="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
-    <link rel="apple-touch-icon" href="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
+    <!-- 1. Universal Favicon Mapping Configuration (Fixed Root Path) -->
+    <link rel="icon" type="image/jpeg" href="WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
+    <link rel="apple-touch-icon" href="WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
 
     <style>
         /* 2. Global Core Variables & Reset Systems */
@@ -41,72 +41,7 @@
             transform: translateY(0);
         }
 
-        /* 4. Global Premium Header Navigation */
-        .main-header {
-            width: 100%;
-            border-bottom: 1px solid var(--border-light);
-            background-color: var(--pure-white);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--matte-black);
-        }
-
-        .nav-logo-img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid var(--terracotta);
-        }
-
-        .nav-logo-text {
-            font-size: 16px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--terracotta);
-        }
-
-        /* 5. Hero Module Layout (Mobile First) */
+        /* 4. Hero Module Layout (Mobile First) */
         .hero-container { 
             width: 100%; 
             max-width: 1200px; 
@@ -198,13 +133,13 @@
         .portrait-img { 
             position: relative; 
             z-index: 2; 
-            max-height: 520px; 
+            max-height: 650px; 
             width: 100%;
             height: auto;
             object-fit: cover; 
         }
 
-        /* 6. Detailed Review Layout Section */
+        /* 5. Detailed Review Layout Section */
         .review-section {
             background-color: var(--studio-grey);
             padding: 80px 24px;
@@ -266,7 +201,7 @@
             margin-bottom: 20px;
         }
 
-        /* 7. New Launch Focus Feature Module (DETOX Campaign) */
+        /* 6. New Launch Focus Feature Module (DETOX Campaign) */
         .campaign-section {
             background-color: var(--pure-white);
             padding: 80px 24px;
@@ -327,7 +262,7 @@
             margin: 0;
         }
 
-        /* 8. Statement Callout Grid Canvas Block */
+        /* 7. Statement Callout Grid Canvas Block */
         .statement-canvas {
             background-color: var(--matte-black);
             color: var(--pure-white);
@@ -364,15 +299,8 @@
             color: var(--terracotta);
         }
 
-        /* 9. Laptop-Fitted Balanced View Layout Adjustments */
+        /* 8. Laptop-Fitted Balanced View Layout Adjustments */
         @media (min-width: 768px) {
-            .nav-container {
-                flex-direction: row;
-                justify-content: space-between;
-                padding: 24px;
-                gap: 0;
-            }
-
             .hero-container { 
                 flex-direction: row; 
                 align-items: center; 
@@ -442,20 +370,8 @@
 </head>
 <body>
 
-    <!-- Target placeholder element where main.js can inject if needed, or static fall-back header components -->
-    <header class="main-header">
-        <nav class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg" alt="Ogirima Obey Logo" class="nav-logo-img">
-                <span class="nav-logo-text">Ogirima Obey</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="books.html">Books</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Target placeholder element where main.js automatically injects your real black header.html -->
+    <div id="global-header"></div>
 
     <!-- Section 1: Hero Header Layout -->
     <main class="hero-container">
@@ -466,18 +382,18 @@
             <a href="https://wa.me/2349025643150" target="_blank" class="hero-btn">Join Men Aflame</a>
         </div>
 
-        <!-- Right Side Large Bold Profile Using Picture 1 -->
+        <!-- Right Side Profile Panel (Fixed Path to your root repository folder) -->
         <div class="hero-image-area">
             <div class="studio-bg"></div>
-            <img src="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg" alt="Ogirima Obey Studio Close-Up" class="portrait-img">
+            <img src="WhatsApp Image 2026-05-27 at 03.47.04.jpeg" alt="Ogirima Obey Studio Close-Up" class="portrait-img">
         </div>
     </main>
 
-    <!-- Section 2: Detailed Executive Review Blueprint Component Using Picture 2 -->
+    <!-- Section 2: Detailed Executive Review Blueprint Component (Fixed Path to root folder) -->
     <section class="review-section">
         <div class="review-wrapper reveal">
             <div class="review-img-box">
-                <img src="images/WhatsApp Image 2026-05-27 at 03.46.41.jpeg" alt="Ogirima Obey Executive Insight" class="review-img">
+                <img src="WhatsApp Image 2026-05-27 at 03.46.41.jpeg" alt="Ogirima Obey Executive Insight" class="review-img">
             </div>
             <div class="review-content">
                 <div class="review-label">Executive Paradigm</div>
@@ -530,7 +446,6 @@
 
     <!-- Global Application & Animation Logic Engine Script -->
     <script>
-        // Native Animation Trigger Engine for Smooth Page Scroll Revelations
         document.addEventListener("DOMContentLoaded", () => {
             const scrollElements = document.querySelectorAll(".reveal");
 
@@ -555,7 +470,6 @@
                 handleScrollAnimation();
             });
 
-            // Initial kickoff configuration check to reveal baseline fields instantly
             setTimeout(handleScrollAnimation, 150);
         });
     </script>
