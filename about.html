@@ -5,22 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Ogirima Obey</title>
     
-    <!-- 1. Universal Favicon Mapping Configuration (Root Path) -->
-    <link rel="icon" type="image/jpeg" href="WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
-    <link rel="apple-touch-icon" href="WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
+    <!-- 1. Universal Favicon Mapping Configuration -->
+    <link rel="icon" type="image/jpeg" href="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
+    <link rel="apple-touch-icon" href="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
 
     <style>
-        /* 2. Global Page Resets & Typography */
+        /* 2. Global Core Variables & Reset Systems */
+        :root {
+            --pure-white: #FFFFFF;
+            --matte-black: #000000;
+            --terracotta: #E04A33;
+            --studio-grey: #F5F5F7;
+            --text-muted: #4A4A4A;
+            --border-light: #E5E5E5;
+        }
+
         body { 
             margin: 0; 
             padding: 0; 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: #FFFFFF; 
-            color: #000000; 
+            background-color: var(--pure-white); 
+            color: var(--matte-black); 
             overflow-x: hidden; 
         }
         
-        /* 3. Main Container Setup */
+        /* 3. Animation Framework Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 4. Global Premium Header Navigation */
+        .main-header {
+            width: 100%;
+            border-bottom: 1px solid var(--border-light);
+            background-color: var(--pure-white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--matte-black);
+        }
+
+        .nav-logo-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--terracotta);
+        }
+
+        .nav-logo-text {
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--terracotta);
+        }
+
+        /* 5. Main Container Setup */
         .page-container { 
             width: 100%; 
             max-width: 1200px; 
@@ -29,18 +115,20 @@
             box-sizing: border-box; 
         }
 
-        /* 4. Section Header Styles */
+        /* 6. Section Header Styles */
         .section-header {
             margin-bottom: 64px;
         }
+        
         .section-tag {
             font-size: 11px; 
             font-weight: 800; 
             letter-spacing: 3px; 
-            color: #E04A33; 
+            color: var(--terracotta); 
             text-transform: uppercase; 
             margin-bottom: 8px;
         }
+        
         .section-title {
             font-size: 36px; 
             font-weight: 900; 
@@ -50,7 +138,7 @@
             line-height: 1.05;
         }
 
-        /* 5. Layout Sections - Mobile First Layout Block */
+        /* 7. Layout Sections - Mobile First Layout Block */
         .bio-section {
             display: flex;
             flex-direction: column;
@@ -60,7 +148,7 @@
         
         /* Image Component Styles */
         .image-panel {
-            background-color: #F5F5F7;
+            background-color: var(--studio-grey);
             width: 100%;
             padding: 20px;
             box-sizing: border-box;
@@ -69,6 +157,7 @@
             align-items: flex-end;
             border-radius: 4px;
         }
+        
         .panel-img {
             width: 100%;
             height: auto;
@@ -84,16 +173,18 @@
             flex-direction: column;
             justify-content: center;
         }
+        
         .bio-lead {
             font-size: 20px;
             font-weight: bold;
             line-height: 1.4;
             margin: 0 0 24px 0;
-            color: #000000;
+            color: var(--matte-black);
         }
+        
         .bio-text {
             font-size: 16px;
-            color: #4A4A4A;
+            color: var(--text-muted);
             line-height: 1.7;
             margin: 0 0 24px 0;
         }
@@ -104,11 +195,13 @@
             flex-direction: column;
             gap: 64px;
         }
+        
         .pillar-row {
             display: flex;
             flex-direction: column;
             gap: 32px;
         }
+        
         .pillar-title {
             font-size: 24px;
             font-weight: 900;
@@ -116,15 +209,16 @@
             letter-spacing: -0.5px;
             margin: 0 0 16px 0;
         }
+        
         .pillar-title span {
-            color: #E04A33;
+            color: var(--terracotta);
         }
 
         /* Core Call to Action Link button */
         .action-link {
             display: inline-block;
-            background-color: #000000;
-            color: #FFFFFF;
+            background-color: var(--matte-black);
+            color: var(--pure-white);
             text-decoration: none;
             padding: 14px 32px;
             font-weight: bold;
@@ -135,35 +229,54 @@
             transition: all 0.3s ease;
             width: fit-content;
         }
+        
         .action-link:hover {
-            background-color: #E04A33;
+            background-color: var(--terracotta);
         }
 
-        /* 6. Laptop-Fitted Balanced Layout Adjustments */
+        /* 8. Laptop-Fitted Balanced Layout Adjustments */
         @media (min-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 24px;
+                gap: 0;
+            }
+
             .section-title {
                 font-size: 56px;
             }
+            
             .bio-section {
                 flex-direction: row;
                 gap: 64px;
                 align-items: center;
             }
+            
             .image-panel {
                 width: 45%;
                 padding: 40px;
             }
+            
             .bio-content {
                 width: 55%;
             }
+            
             .pillar-row {
                 flex-direction: row;
                 gap: 64px;
                 align-items: center;
             }
+
+            /* Flips alternating rows on desktop for high-end asymmetrical balance */
+            .pillar-row.reverse {
+                flex-direction: row-reverse;
+            }
+            
             .pillar-media {
                 width: 45%;
             }
+            
             .pillar-text-block {
                 width: 55%;
             }
@@ -172,22 +285,33 @@
 </head>
 <body>
 
-    <!-- Target placeholder element where main.js injects header.html -->
-    <div id="global-header"></div>
+    <!-- Dynamic Layout Engine Top Navigation Header -->
+    <header class="main-header">
+        <nav class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg" alt="Ogirima Obey Logo" class="nav-logo-img">
+                <span class="nav-logo-text">Ogirima Obey</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="books.html">Books</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main class="page-container">
         
         <!-- Page Title Header Section -->
-        <section class="section-header">
+        <section class="section-header reveal">
             <div class="section-tag">The Profile</div>
             <h1 class="section-title">Ogirima Obey</h1>
         </section>
 
-        <!-- Profile Intro Section (Image 1 Split - Fixed Root Path) -->
-        <section class="bio-section">
+        <!-- Profile Intro Section -->
+        <section class="bio-section reveal">
             <div class="image-panel">
-                <!-- Profile Image 1 Corrected Path Link -->
-                <img src="WhatsApp Image 2026-05-27 at 03.32.36.jpeg" alt="Ogirima Obey Executive Portrait" class="panel-img">
+                <img src="images/WhatsApp Image 2026-05-27 at 03.32.36.jpeg" alt="Ogirima Obey Executive Portrait" class="panel-img">
             </div>
             <div class="bio-content">
                 <p class="bio-lead">
@@ -205,10 +329,10 @@
         <!-- Pillars System (Alternating Multi-column grids) -->
         <section class="pillars-grid">
             
-            <hr style="border: 0; border-top: 1px solid #E5E5E5; margin: 0;">
+            <hr style="border: 0; border-top: 1px solid var(--border-light); margin: 0;">
 
             <!-- Pillar 1: Global Leadership Ecosystem -->
-            <article class="pillar-row">
+            <article class="pillar-row reveal">
                 <div class="pillar-text-block" style="flex: 1;">
                     <h2 class="pillar-title">Global Leadership & <span>Men Aflame Network</span></h2>
                     <p class="bio-text">
@@ -220,13 +344,12 @@
                 </div>
             </article>
 
-            <hr style="border: 0; border-top: 1px solid #E5E5E5; margin: 0;">
+            <hr style="border: 0; border-top: 1px solid var(--border-light); margin: 0;">
 
-            <!-- Pillar 2: Keynote Speaking & Life Coaching (Image 2 Split - Fixed Root Path) -->
-            <article class="pillar-row">
+            <!-- Pillar 2: Keynote Speaking & Life Coaching (Asymmetric Layout Shift) -->
+            <article class="pillar-row reverse reveal">
                 <div class="image-panel pillar-media">
-                    <!-- Presentation Image 2 Corrected Path Link -->
-                    <img src="WhatsApp Image 2026-05-27 at 03.33.40.jpeg" alt="Ogirima Obey Keynote Presentation" class="panel-img">
+                    <img src="images/WhatsApp Image 2026-05-27 at 03.33.40.jpeg" alt="Ogirima Obey Keynote Presentation" class="panel-img">
                 </div>
                 <div class="pillar-text-block">
                     <h2 class="pillar-title">Keynote Speaking & <span>Life Coaching</span></h2>
@@ -239,10 +362,10 @@
                 </div>
             </article>
 
-            <hr style="border: 0; border-top: 1px solid #E5E5E5; margin: 0;">
+            <hr style="border: 0; border-top: 1px solid var(--border-light); margin: 0;">
 
             <!-- Pillar 3: Healthtech & Publications -->
-            <article class="pillar-row">
+            <article class="pillar-row reveal">
                 <div class="pillar-text-block" style="flex: 1;">
                     <h2 class="pillar-title">Venture Design & <span>Literature Archive</span></h2>
                     <p class="bio-text">
@@ -259,7 +382,35 @@
 
     </main>
 
-    <!-- Connects to our dynamic global layout engine script -->
+    <!-- Global Application & Animation Logic Engine Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollElements = document.querySelectorAll(".reveal");
+
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+            };
+
+            const displayScrollElement = (element) => {
+                element.classList.add("active");
+            };
+
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.15)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+
+            window.addEventListener("scroll", () => { 
+                handleScrollAnimation();
+            });
+
+            setTimeout(handleScrollAnimation, 150);
+        });
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
