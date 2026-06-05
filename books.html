@@ -4,18 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books | Ogirima Obey</title>
+    
+    <!-- 1. Universal Favicon Mapping Configuration -->
+    <link rel="icon" type="image/jpeg" href="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
+    <link rel="apple-touch-icon" href="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
+
     <style>
-        /* 1. Global Page Resets & Typography */
+        /* 2. Global Core Variables & Reset Systems */
+        :root {
+            --pure-white: #FFFFFF;
+            --matte-black: #000000;
+            --terracotta: #E04A33;
+            --studio-grey: #F5F5F7;
+            --text-muted: #4A4A4A;
+            --border-light: #E5E5E5;
+        }
+
         body { 
             margin: 0; 
             padding: 0; 
-            font-family: sans-serif; 
-            background-color: #FFFFFF; 
-            color: #000000; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: var(--pure-white); 
+            color: var(--matte-black); 
             overflow-x: hidden; 
         }
         
-        /* 2. Main Container Setup */
+        /* 3. Animation Framework Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 4. Global Premium Header Navigation */
+        .main-header {
+            width: 100%;
+            border-bottom: 1px solid var(--border-light);
+            background-color: var(--pure-white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--matte-black);
+        }
+
+        .nav-logo-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--terracotta);
+        }
+
+        .nav-logo-text {
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--terracotta);
+        }
+
+        /* 5. Main Container Setup */
         .page-container { 
             width: 100%; 
             max-width: 1200px; 
@@ -24,15 +115,15 @@
             box-sizing: border-box; 
         }
 
-        /* 3. Section Header Styles */
+        /* 6. Section Header Styles */
         .section-header {
-            margin-bottom: 48px;
+            margin-bottom: 64px;
         }
         .section-tag {
-            font-size: 12px; 
-            font-weight: bold; 
+            font-size: 11px; 
+            font-weight: 800; 
             letter-spacing: 3px; 
-            color: #E04A33; 
+            color: var(--terracotta); 
             text-transform: uppercase; 
             margin-bottom: 8px;
         }
@@ -42,13 +133,14 @@
             text-transform: uppercase; 
             margin: 0; 
             letter-spacing: -1px;
+            line-height: 1.05;
         }
 
-        /* 4. Book Grid - Mobile-First (Single Column Stack) */
+        /* 7. Book Grid - Mobile-First (Single Column Stack) */
         .book-grid {
             display: flex;
             flex-direction: column;
-            gap: 64px;
+            gap: 80px;
             width: 100%;
         }
 
@@ -56,13 +148,13 @@
         .book-card {
             display: flex;
             flex-direction: column;
-            gap: 24px;
-            background-color: #FFFFFF;
+            gap: 32px;
+            background-color: var(--pure-white);
         }
 
         /* Book Cover Container with Studio Grey Canvas styling */
         .book-cover-wrapper {
-            background-color: #E5E5E5;
+            background-color: var(--studio-grey);
             width: 100%;
             padding: 40px 20px;
             box-sizing: border-box;
@@ -71,13 +163,16 @@
             align-items: center;
             border-radius: 4px;
         }
+        
         .book-cover-img {
-            max-height: 320px;
-            width: auto;
-            object-fit: contain;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            max-height: 400px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             transition: transform 0.3s ease;
         }
+        
         .book-card:hover .book-cover-img {
             transform: translateY(-8px);
         }
@@ -88,33 +183,38 @@
             flex-direction: column;
             justify-content: center;
         }
+        
+        .book-status-badge {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--terracotta);
+            margin-bottom: 12px;
+        }
+        
         .book-title {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 900;
             text-transform: uppercase;
-            margin: 0 0 8px 0;
+            margin: 0 0 16px 0;
             letter-spacing: -0.5px;
             line-height: 1.1;
         }
-        .book-price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #E04A33;
-            margin-bottom: 16px;
-        }
+        
         .book-description {
-            font-size: 15px;
-            color: #4A4A4A;
-            line-height: 1.6;
-            margin: 0 0 24px 0;
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin: 0 0 32px 0;
         }
 
-        /* Direct Full-Width Purchase Button for Mobile */
+        /* Direct Action Button */
         .buy-btn {
             display: block;
             text-align: center;
-            background-color: #000000;
-            color: #FFFFFF;
+            background-color: var(--matte-black);
+            color: var(--pure-white);
             text-decoration: none;
             padding: 16px 32px;
             font-weight: bold;
@@ -123,89 +223,137 @@
             text-transform: uppercase;
             border-radius: 4px;
             transition: background-color 0.3s ease;
+            width: fit-content;
         }
+        
         .buy-btn:hover {
-            background-color: #E04A33;
+            background-color: var(--terracotta);
+        }
+        
+        .buy-btn.disabled {
+            background-color: var(--border-light);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
-        /* 5. Laptop-Fitted Balanced Layout Adjustments */
+        /* 8. Laptop-Fitted Balanced Layout Adjustments */
         @media (min-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 24px;
+                gap: 0;
+            }
+
             .section-title {
-                font-size: 48px;
+                font-size: 56px;
             }
-            .book-grid {
-                gap: 48px;
-            }
+            
             .book-card {
                 flex-direction: row;
-                gap: 48px;
+                gap: 64px;
             }
+
+            /* Alternates the layout dynamically on wide views */
+            .book-card.reverse {
+                flex-direction: row-reverse;
+            }
+            
             .book-cover-wrapper {
-                width: 40%;
-                padding: 60px 40px;
+                width: 45%;
+                padding: 40px;
             }
+            
             .book-details {
-                width: 60%;
-                padding-right: 40px;
+                width: 55%;
             }
+            
             .book-title {
-                font-size: 32px;
-            }
-            .buy-btn {
-                width: fit-content;
-                padding: 14px 40px;
+                font-size: 38px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Target placeholder element where main.js injects components/header.html -->
-    <div id="global-header"></div>
+    <!-- Dynamic Layout Engine Top Navigation Header -->
+    <header class="main-header">
+        <nav class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg" alt="Ogirima Obey Logo" class="nav-logo-img">
+                <span class="nav-logo-text">Ogirima Obey</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="books.html" class="active">Books</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main class="page-container">
         
         <!-- Page Title Header Section -->
-        <section class="section-header">
-            <div class="section-tag">Literary Works & Frameworks</div>
-            <h1 class="section-title">The Literature Archive</h1>
+        <section class="section-header reveal">
+            <div class="section-tag">Literary Archives</div>
+            <h1 class="section-title">Books & Blueprints</h1>
         </section>
 
         <!-- Dynamic Collection Grid Container -->
         <section class="book-grid">
 
-            <!-- Book Entry 1 -->
-            <article class="book-card">
+            <!-- Book 1: Dear Future Wife -->
+            <article class="book-card reveal">
                 <div class="book-cover-wrapper">
-                    <!-- Replace with your actual rendered book mock image path -->
-                    <img src="images/comprehensive-man-mock.png" alt="The Comprehensive Man Cover" class="book-cover-img">
+                    <img src="images/WhatsApp Image 2026-05-27 at 03.33.40.jpeg" alt="Dear Future Wife Publication Showcase" class="book-cover-img">
                 </div>
                 <div class="book-details">
-                    <h2 class="book-title">The Comprehensive Man</h2>
-                    <div class="book-price">₦10,000</div>
+                    <div class="book-status-badge">Available Now</div>
+                    <h2 class="book-title">Dear Future Wife</h2>
                     <p class="book-description">
-                        A definitive masterwork engineered to dismantle hyper-independent modern mentalities. This framework details the exact architecture needed to balance raw power with profound character growth, leadership, and emotional composition under God.
+                        A foundational narrative framework engineered for deep clarity, intentional personal preparation, and emotional maturity. This literature details a clear strategic path toward building healthy relationship metrics and relational alignment.
                     </p>
-                    <a href="https://wa.me/2349025643150?text=Hello%20Ogirima,%20I%20want%20to%20order%20The%20Comprehensive%20Man" target="_blank" class="buy-btn">
-                        Order Via WhatsApp
+                    <a href="https://menaflamenetwork.github.io/dearfuturewife" target="_blank" class="buy-btn">
+                        Acquire Book
                     </a>
                 </div>
             </article>
 
-            <!-- Book Entry 2 -->
-            <article class="book-card">
+            <!-- Book 2: From Idea to Empire -->
+            <article class="book-card reverse reveal">
                 <div class="book-cover-wrapper">
-                    <!-- Replace with your actual rendered book mock image path -->
-                    <img src="images/from-idea-to-empire-mock.png" alt="From Idea to Empire Cover" class="book-cover-img">
+                    <!-- Embedded with matching brand portrait structure -->
+                    <img src="images/WhatsApp Image 2026-05-27 at 03.32.36.jpeg" alt="From Idea to Empire Publication Showcase" class="book-cover-img">
                 </div>
                 <div class="book-details">
+                    <div class="book-status-badge">Available Now</div>
                     <h2 class="book-title">From Idea To Empire</h2>
-                    <div class="book-price">₦12,500</div>
                     <p class="book-description">
-                        The definitive tactical manual for African venture builder models. Learn how to construct fundable blueprints, launch world-class digital systems with absolute lean capital, and drive reliable, scalable monthly recurring revenue streams.
+                        The practical, step-by-step tactical handbook tailored specifically for business modeling and digital deployment. Learn the direct processes required to build fundable frameworks, deploy lean digital engines, and launch sustainable corporate systems.
                     </p>
-                    <a href="https://wa.me/2349025643150?text=Hello%20Ogirima,%20I%20want%20to%20order%20From%20Idea%20to%20Empire" target="_blank" class="buy-btn">
-                        Order Via WhatsApp
+                    <a href="https://selar.com/5115g72918" target="_blank" class="buy-btn">
+                        Acquire on Selar
+                    </a>
+                </div>
+            </article>
+
+            <!-- Book 3: DETOX -->
+            <article class="book-card reveal">
+                <div class="book-cover-wrapper" style="background-color: var(--matte-black);">
+                    <div style="color: var(--pure-white); text-align: center; padding: 40px 20px;">
+                        <h3 style="font-size: 40px; font-weight: 900; margin: 0 0 10px 0; letter-spacing: 2px;">DETOX</h3>
+                        <p style="font-size: 11px; font-weight: bold; color: var(--terracotta); letter-spacing: 3px; text-transform: uppercase; margin: 0;">The Purge Framework</p>
+                    </div>
+                </div>
+                <div class="book-details">
+                    <div class="book-status-badge" style="color: var(--matte-black);">Currently Authoring</div>
+                    <h2 class="book-title">DETOX</h2>
+                    <p class="book-description">
+                        A deep-dive tactical blueprint tracking the behavioral mechanics, neuroscience, and spiritual laws required to break free from hidden habits, compulsive cycles, and dependencies. Returning a man directly to his original structural intent and absolute character composure.
+                    </p>
+                    <a href="#" class="buy-btn disabled">
+                        In Production
                     </a>
                 </div>
             </article>
@@ -214,7 +362,35 @@
 
     </main>
 
-    <!-- Connects to our dynamic global layout engine script -->
+    <!-- Global Application & Animation Logic Engine Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollElements = document.querySelectorAll(".reveal");
+
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+            };
+
+            const displayScrollElement = (element) => {
+                element.classList.add("active");
+            };
+
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.15)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+
+            window.addEventListener("scroll", () => { 
+                handleScrollAnimation();
+            });
+
+            setTimeout(handleScrollAnimation, 150);
+        });
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
