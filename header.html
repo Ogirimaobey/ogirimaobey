@@ -1,13 +1,14 @@
 <!-- Universal Navigation Header Layout for OgirimaObey.com -->
 <header class="global-navigation-bar">
     
-    <!-- Left Side: Brand Signature Block -->
-    <div class="nav-branding">
-        OGIRIMA <span class="nav-accent">OBEY</span>
-    </div>
+    <!-- Left Side: Brand Signature Block with Integrated Photo Asset -->
+    <a href="index.html" class="nav-branding">
+        <img src="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg" alt="Ogirima Obey Circle Profile" class="nav-brand-avatar">
+        <span class="nav-brand-text">OGIRIMA <span class="nav-accent">OBEY</span></span>
+    </a>
     
     <!-- Center: Multi-page Dynamic Links -->
-    <nav class="nav-links-row">
+    <nav class="nav-links-row" id="universal-nav-links">
         <a href="index.html" class="nav-item-link">Home</a>
         <a href="about.html" class="nav-item-link">About</a>
         <a href="books.html" class="nav-item-link">Books</a>
@@ -33,11 +34,35 @@
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             border-bottom: 1px solid #1A1A1A;
+            position: sticky;
+            top: 0;
+            z-index: 200;
         }
 
         .nav-branding {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #FFFFFF;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-branding:hover {
+            opacity: 0.9;
+        }
+
+        .nav-brand-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid #E04A33;
+        }
+
+        .nav-brand-text {
             font-weight: 900;
-            font-size: 20px;
+            font-size: 18px;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
@@ -55,23 +80,36 @@
         .nav-item-link {
             color: #FFFFFF;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s ease;
             padding: 6px 0;
+            position: relative;
         }
 
-        .nav-item-link:hover {
+        .nav-item-link:hover,
+        .nav-item-link.nav-active {
             color: #E04A33;
+        }
+
+        /* Minimal high-end underscore indicator for active state laptop view */
+        .nav-item-link.nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #E04A33;
         }
 
         .nav-booking-action-btn {
             background-color: #E04A33;
             color: #FFFFFF;
             text-decoration: none;
-            padding: 12px 24px;
+            padding: 14px 24px;
             border-radius: 4px;
             font-size: 11px;
             font-weight: bold;
@@ -96,7 +134,11 @@
             .global-navigation-bar {
                 flex-direction: row;
                 gap: 0;
-                padding: 18px 40px;
+                padding: 16px 40px;
+            }
+
+            .nav-brand-text {
+                font-size: 20px;
             }
 
             .nav-links-row {
@@ -105,9 +147,27 @@
 
             .nav-booking-action-btn {
                 width: auto;
-                padding: 10px 24px;
+                padding: 12px 28px;
                 font-size: 12px;
             }
         }
     </style>
+
+    <!-- Inline Active Route Evaluator Engine -->
+    <script>
+        (function() {
+            document.addEventListener("DOMContentLoaded", function() {
+                const currentPath = window.location.pathname.split("/").pop() || "index.html";
+                const navLinks = document.querySelectorAll("#universal-nav-links .nav-item-link");
+                navLinks.forEach(link => {
+                    const hrefTarget = link.getAttribute("href");
+                    if (hrefTarget === currentPath) {
+                        link.classList.add("nav-active");
+                    } else {
+                        link.classList.remove("nav-active");
+                    }
+                });
+            });
+        })();
+    </script>
 </header>
