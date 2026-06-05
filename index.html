@@ -17,6 +17,7 @@
             --terracotta: #E04A33;
             --studio-grey: #F5F5F7;
             --text-muted: #4A4A4A;
+            --border-light: #E5E5E5;
         }
 
         body { 
@@ -40,7 +41,72 @@
             transform: translateY(0);
         }
 
-        /* 4. Hero Module Layout (Mobile First) */
+        /* 4. Global Premium Header Navigation */
+        .main-header {
+            width: 100%;
+            border-bottom: 1px solid var(--border-light);
+            background-color: var(--pure-white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--matte-black);
+        }
+
+        .nav-logo-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--terracotta);
+        }
+
+        .nav-logo-text {
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--terracotta);
+        }
+
+        /* 5. Hero Module Layout (Mobile First) */
         .hero-container { 
             width: 100%; 
             max-width: 1200px; 
@@ -49,7 +115,7 @@
             display: flex; 
             flex-direction: column; 
             box-sizing: border-box; 
-            min-height: calc(100vh - 80px); 
+            min-height: calc(100vh - 140px); 
         }
 
         .hero-text { 
@@ -112,7 +178,7 @@
         .hero-image-area { 
             width: 100%; 
             position: relative; 
-            min-height: 480px; 
+            min-height: 400px; 
             display: flex; 
             align-items: flex-end; 
             justify-content: center; 
@@ -130,7 +196,7 @@
         }
 
         .portrait-img { 
-            relative; 
+            position: relative; 
             z-index: 2; 
             max-height: 520px; 
             width: 100%;
@@ -138,7 +204,7 @@
             object-fit: cover; 
         }
 
-        /* 5. Detailed Review Layout Section */
+        /* 6. Detailed Review Layout Section */
         .review-section {
             background-color: var(--studio-grey);
             padding: 80px 24px;
@@ -200,7 +266,68 @@
             margin-bottom: 20px;
         }
 
-        /* 6. Statement Callout Grid Canvas Block */
+        /* 7. New Launch Focus Feature Module (DETOX Campaign) */
+        .campaign-section {
+            background-color: var(--pure-white);
+            padding: 80px 24px;
+            box-sizing: border-box;
+        }
+
+        .campaign-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .campaign-meta {
+            max-width: 600px;
+        }
+
+        .campaign-title {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin: 12px 0;
+        }
+
+        .campaign-title span {
+            color: var(--terracotta);
+        }
+
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .campaign-card {
+            border-left: 3px solid var(--matte-black);
+            padding-left: 24px;
+        }
+
+        .campaign-card.highlight {
+            border-left-color: var(--terracotta);
+        }
+
+        .campaign-card h3 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .campaign-card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* 8. Statement Callout Grid Canvas Block */
         .statement-canvas {
             background-color: var(--matte-black);
             color: var(--pure-white);
@@ -230,36 +357,49 @@
             line-height: 1.4;
             text-transform: uppercase;
             letter-spacing: -0.5px;
+            margin: 0;
         }
 
         .statement-quote span {
             color: var(--terracotta);
         }
 
-        /* 7. Laptop-Fitted Balanced View Layout Adjustments */
+        /* 9. Laptop-Fitted Balanced View Layout Adjustments */
         @media (min-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 24px;
+                gap: 0;
+            }
+
             .hero-container { 
                 flex-direction: row; 
                 align-items: center; 
                 padding: 60px 24px;
                 min-height: calc(100vh - 90px);
             }
+            
             .hero-text { 
                 width: 50%; 
                 padding-right: 60px; 
             }
+            
             .hero-title { 
                 font-size: 76px; 
             }
+            
             .hero-image-area { 
                 width: 50%; 
                 min-height: 650px; 
                 margin-top: 0; 
             }
+            
             .studio-bg { 
                 height: 100%; 
                 top: 0; 
             }
+            
             .portrait-img {
                 max-height: 650px;
             }
@@ -270,20 +410,30 @@
                 gap: 80px;
                 align-items: center;
             }
+            
             .review-img-box {
                 width: 45%;
             }
+            
             .review-content {
                 width: 55%;
             }
+            
             .review-quote {
                 font-size: 36px;
+            }
+
+            /* Campaign Module Layout Grid Expansion */
+            .campaign-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
             }
 
             /* Statement Callout Size Shift */
             .statement-canvas {
                 padding: 140px 24px;
             }
+            
             .statement-quote {
                 font-size: 38px;
             }
@@ -292,8 +442,20 @@
 </head>
 <body>
 
-    <!-- Target placeholder element where main.js injects components/header.html -->
-    <div id="global-header"></div>
+    <!-- Target placeholder element where main.js can inject if needed, or static fall-back header components -->
+    <header class="main-header">
+        <nav class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg" alt="Ogirima Obey Logo" class="nav-logo-img">
+                <span class="nav-logo-text">Ogirima Obey</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="books.html">Books</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Section 1: Hero Header Layout -->
     <main class="hero-container">
@@ -304,14 +466,14 @@
             <a href="https://wa.me/2349025643150" target="_blank" class="hero-btn">Join Men Aflame</a>
         </div>
 
-        <!-- Right Side Large Bold Profile (Styled after Jason Wilson's aesthetic using Picture 1) -->
+        <!-- Right Side Large Bold Profile Using Picture 1 -->
         <div class="hero-image-area">
             <div class="studio-bg"></div>
             <img src="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg" alt="Ogirima Obey Studio Close-Up" class="portrait-img">
         </div>
     </main>
 
-    <!-- Section 2: Detailed Executive Review Blueprint Component (Picture 2) -->
+    <!-- Section 2: Detailed Executive Review Blueprint Component Using Picture 2 -->
     <section class="review-section">
         <div class="review-wrapper reveal">
             <div class="review-img-box">
@@ -330,7 +492,33 @@
         </div>
     </section>
 
-    <!-- Section 3: Core Kingdom Masculine Strengths Callout Block (Picture 3 Caption) -->
+    <!-- Section 3: The Detox Strategic Focus Grid Module -->
+    <section class="campaign-section">
+        <div class="campaign-container reveal">
+            <div class="campaign-meta">
+                <div class="review-label">Current Focus Module</div>
+                <h2 class="campaign-title">The <span>Detox</span> Cohort</h2>
+                <p class="review-text">Dismantling double lives, purging internal systemic loops, and stepping out of psychological entrapment to anchor true leadership composure.</p>
+            </div>
+            
+            <div class="campaign-grid">
+                <div class="campaign-card">
+                    <h3>The Call to Remember</h3>
+                    <p>True personal reformation doesn't originate from simple willpower. It begins when a man breaks out of the comfort of captivity and accurately recalls the uncompromised version of himself he was built to become.</p>
+                </div>
+                <div class="campaign-card highlight">
+                    <h3>Empirical Recovery</h3>
+                    <p>Clinical tracking via memory specificity tests proves that actively retrieving your original identity metrics acts as a dominant predictor for personal recovery, yielding a major 0.87 treatment effect size over hidden habits.</p>
+                </div>
+                <div class="campaign-card">
+                    <h3>Brotherhood Cohort</h3>
+                    <p>Moving past toxic cycles by establishing clear, high-trust spaces built specifically for ambitious men to drop false pretenses and align directly with ultimate spiritual obedience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Core Kingdom Masculine Strengths Callout Block -->
     <section class="statement-canvas">
         <div class="statement-wrapper reveal">
             <div class="statement-tag">The Standard of Leadership</div>
