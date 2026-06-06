@@ -5,35 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books | Ogirima Obey</title>
     
-    <!-- 1. Universal Favicon Mapping Configuration -->
-    <link rel="icon" type="image/jpeg" href="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
-    <link rel="apple-touch-icon" href="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
+    <!-- 1. Universal Favicon Mapping Configuration (Direct Root Mapping) -->
+    <link rel="icon" type="image/jpeg" href="WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
+    <link rel="apple-touch-icon" href="WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
 
     <style>
-        /* 2. Global Core Variables & Reset Systems */
+        /* 2. Global Core Variables & Fluid System Setup */
         :root {
             --pure-white: #FFFFFF;
-            --matte-black: #000000;
+            --matte-black: #050505;
+            --deep-charcoal: #0F0F11;
             --terracotta: #E04A33;
-            --studio-grey: #F5F5F7;
-            --text-muted: #4A4A4A;
-            --border-light: #E5E5E5;
+            --text-muted: #8A8A93;
+            --border-dark: #1A1A1E;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body { 
-            margin: 0; 
-            padding: 0; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: var(--pure-white); 
-            color: var(--matte-black); 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: var(--matte-black); 
+            color: var(--pure-white); 
             overflow-x: hidden; 
+            line-height: 1.4;
         }
         
-        /* 3. Animation Framework Classes */
+        /* 3. High-Performance Ambient Layer */
+        #ambient-fire-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.35;
+        }
+
+        /* 4. Core Layout Container System */
+        .page-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .page-container { 
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 100px 24px 60px 24px; 
+        }
+
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.active {
@@ -41,102 +71,27 @@
             transform: translateY(0);
         }
 
-        /* 4. Global Premium Header Navigation */
-        .main-header {
-            width: 100%;
-            border-bottom: 1px solid var(--border-light);
-            background-color: var(--pure-white);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--matte-black);
-        }
-
-        .nav-logo-img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid var(--terracotta);
-        }
-
-        .nav-logo-text {
-            font-size: 16px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--terracotta);
-        }
-
-        /* 5. Main Container Setup */
-        .page-container { 
-            width: 100%; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 48px 24px; 
-            box-sizing: border-box; 
-        }
-
-        /* 6. Section Header Styles */
+        /* 5. Section Header Styles */
         .section-header {
             margin-bottom: 64px;
         }
         .section-tag {
             font-size: 11px; 
             font-weight: 800; 
-            letter-spacing: 3px; 
+            letter-spacing: 5px; 
             color: var(--terracotta); 
             text-transform: uppercase; 
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         .section-title {
-            font-size: 36px; 
+            font-size: clamp(40px, 8vw, 72px); 
             font-weight: 900; 
             text-transform: uppercase; 
-            margin: 0; 
-            letter-spacing: -1px;
-            line-height: 1.05;
+            letter-spacing: -2px;
+            line-height: 0.9;
         }
 
-        /* 7. Book Grid - Mobile-First (Single Column Stack) */
+        /* 6. Book Grid Container Layout */
         .book-grid {
             display: flex;
             flex-direction: column;
@@ -144,40 +99,39 @@
             width: 100%;
         }
 
-        /* Individual Book Card Layout */
         .book-card {
             display: flex;
             flex-direction: column;
             gap: 32px;
-            background-color: var(--pure-white);
+            background-color: transparent;
         }
 
-        /* Book Cover Container with Studio Grey Canvas styling */
         .book-cover-wrapper {
-            background-color: var(--studio-grey);
+            background-color: var(--deep-charcoal);
+            border: 1px solid var(--border-dark);
             width: 100%;
             padding: 40px 20px;
-            box-sizing: border-box;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 4px;
+            aspect-ratio: 4/5;
+            overflow: hidden;
         }
         
         .book-cover-img {
-            max-height: 400px;
             width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-radius: 2px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
+            filter: grayscale(100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
         }
         
         .book-card:hover .book-cover-img {
-            transform: translateY(-8px);
+            transform: translateY(-4px) scale(1.02);
+            filter: grayscale(0%);
         }
 
-        /* Book Text Details Block */
         .book-details {
             display: flex;
             flex-direction: column;
@@ -188,17 +142,17 @@
             font-size: 10px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--terracotta);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
         
         .book-title {
-            font-size: 28px;
+            font-size: clamp(26px, 4vw, 38px);
             font-weight: 900;
             text-transform: uppercase;
             margin: 0 0 16px 0;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
             line-height: 1.1;
         }
         
@@ -209,41 +163,43 @@
             margin: 0 0 32px 0;
         }
 
-        /* Direct Action Button */
+        /* Core Action Links */
         .buy-btn {
             display: block;
             text-align: center;
-            background-color: var(--matte-black);
+            background-color: var(--terracotta);
             color: var(--pure-white);
+            text-shadow: none;
             text-decoration: none;
-            padding: 16px 32px;
-            font-weight: bold;
-            font-size: 13px;
-            letter-spacing: 1px;
+            padding: 16px 36px;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             border-radius: 4px;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
             width: fit-content;
         }
         
         .buy-btn:hover {
-            background-color: var(--terracotta);
+            background-color: var(--pure-white);
+            color: var(--matte-black);
+            transform: translateY(-3px);
         }
         
         .buy-btn.disabled {
-            background-color: var(--border-light);
-            color: var(--text-muted);
+            background-color: var(--deep-charcoal);
+            border: 1px solid var(--border-dark);
+            color: #444446;
             cursor: not-allowed;
             pointer-events: none;
+            text-transform: uppercase;
         }
 
-        /* 8. Laptop-Fitted Balanced Layout Adjustments */
+        /* 7. Laptop-Fitted Desktop Scale Configurations Override */
         @media (min-width: 768px) {
-            .nav-container {
-                flex-direction: row;
-                justify-content: space-between;
-                padding: 24px;
-                gap: 0;
+            .page-container {
+                padding-top: 140px;
             }
 
             .section-title {
@@ -255,140 +211,173 @@
                 gap: 64px;
             }
 
-            /* Alternates the layout dynamically on wide views */
             .book-card.reverse {
                 flex-direction: row-reverse;
             }
             
             .book-cover-wrapper {
                 width: 45%;
+                height: 540px;
+                aspect-ratio: auto;
                 padding: 40px;
             }
             
             .book-details {
                 width: 55%;
             }
-            
-            .book-title {
-                font-size: 38px;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Dynamic Layout Engine Top Navigation Header -->
-    <header class="main-header">
-        <nav class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg" alt="Ogirima Obey Logo" class="nav-logo-img">
-                <span class="nav-logo-text">Ogirima Obey</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="books.html" class="active">Books</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Ambient Fire Particle System Canvas Element -->
+    <canvas id="ambient-fire-canvas"></canvas>
 
-    <main class="page-container">
-        
-        <!-- Page Title Header Section -->
-        <section class="section-header reveal">
-            <div class="section-tag">Literary Archives</div>
-            <h1 class="section-title">Books & Blueprints</h1>
-        </section>
+    <!-- Global Application Target Anchor Node -->
+    <div id="global-header"></div>
 
-        <!-- Dynamic Collection Grid Container -->
-        <section class="book-grid">
+    <div class="page-wrapper">
+        <main class="page-container">
+            
+            <!-- Page Title Header Section -->
+            <section class="section-header reveal">
+                <div class="section-tag">Literary Archives</div>
+                <h1 class="section-title">Books & Blueprints</h1>
+            </section>
 
-            <!-- Book 1: Dear Future Wife -->
-            <article class="book-card reveal">
-                <div class="book-cover-wrapper">
-                    <img src="images/WhatsApp Image 2026-05-27 at 03.33.40.jpeg" alt="Dear Future Wife Publication Showcase" class="book-cover-img">
-                </div>
-                <div class="book-details">
-                    <div class="book-status-badge">Available Now</div>
-                    <h2 class="book-title">Dear Future Wife</h2>
-                    <p class="book-description">
-                        A foundational narrative framework engineered for deep clarity, intentional personal preparation, and emotional maturity. This literature details a clear strategic path toward building healthy relationship metrics and relational alignment.
-                    </p>
-                    <a href="https://menaflamenetwork.github.io/dearfuturewife" target="_blank" class="buy-btn">
-                        Acquire Book
-                    </a>
-                </div>
-            </article>
+            <!-- Dynamic Collection Grid Container -->
+            <section class="book-grid">
 
-            <!-- Book 2: From Idea to Empire -->
-            <article class="book-card reverse reveal">
-                <div class="book-cover-wrapper">
-                    <!-- Embedded with matching brand portrait structure -->
-                    <img src="images/WhatsApp Image 2026-05-27 at 03.32.36.jpeg" alt="From Idea to Empire Publication Showcase" class="book-cover-img">
-                </div>
-                <div class="book-details">
-                    <div class="book-status-badge">Available Now</div>
-                    <h2 class="book-title">From Idea To Empire</h2>
-                    <p class="book-description">
-                        The practical, step-by-step tactical handbook tailored specifically for business modeling and digital deployment. Learn the direct processes required to build fundable frameworks, deploy lean digital engines, and launch sustainable corporate systems.
-                    </p>
-                    <a href="https://selar.com/5115g72918" target="_blank" class="buy-btn">
-                        Acquire on Selar
-                    </a>
-                </div>
-            </article>
-
-            <!-- Book 3: DETOX -->
-            <article class="book-card reveal">
-                <div class="book-cover-wrapper" style="background-color: var(--matte-black);">
-                    <div style="color: var(--pure-white); text-align: center; padding: 40px 20px;">
-                        <h3 style="font-size: 40px; font-weight: 900; margin: 0 0 10px 0; letter-spacing: 2px;">DETOX</h3>
-                        <p style="font-size: 11px; font-weight: bold; color: var(--terracotta); letter-spacing: 3px; text-transform: uppercase; margin: 0;">The Purge Framework</p>
+                <!-- Book 1: Dear Future Wife -->
+                <article class="book-card reveal">
+                    <div class="book-cover-wrapper">
+                        <img src="WhatsApp Image 2026-05-27 at 03.33.40.jpeg" alt="Dear Future Wife Publication Showcase" class="book-cover-img">
                     </div>
-                </div>
-                <div class="book-details">
-                    <div class="book-status-badge" style="color: var(--matte-black);">Currently Authoring</div>
-                    <h2 class="book-title">DETOX</h2>
-                    <p class="book-description">
-                        A deep-dive tactical blueprint tracking the behavioral mechanics, neuroscience, and spiritual laws required to break free from hidden habits, compulsive cycles, and dependencies. Returning a man directly to his original structural intent and absolute character composure.
-                    </p>
-                    <a href="#" class="buy-btn disabled">
-                        In Production
-                    </a>
-                </div>
-            </article>
+                    <div class="book-details">
+                        <div class="book-status-badge">Available Now</div>
+                        <h2 class="book-title">Dear Future Wife</h2>
+                        <p class="book-description">
+                            A foundational framework written for deep personal alignment and relationship design. This manual breaks down the clear roadmap required to approach relationships with intent, character composure, and responsibility.
+                        </p>
+                        <a href="https://menaflamenetwork.github.io/dearfuturewife" target="_blank" class="buy-btn">
+                            Acquire Book
+                        </a>
+                    </div>
+                </article>
 
-        </section>
+                <!-- Book 2: From Idea to Empire -->
+                <article class="book-card reverse reveal">
+                    <div class="book-cover-wrapper">
+                        <img src="WhatsApp Image 2026-05-27 at 03.32.36.jpeg" alt="From Idea to Empire Publication Showcase" class="book-cover-img">
+                    </div>
+                    <div class="book-details">
+                        <div class="book-status-badge">Available Now</div>
+                        <h2 class="book-title">From Idea To Empire</h2>
+                        <p class="book-description">
+                            The explicit tactical manual for business execution and digital product launching. Learn the core operational methods required to build fundable frameworks, validate concepts with minimal overhead, and establish operational systems.
+                        </p>
+                        <a href="https://selar.com/5115g72918" target="_blank" class="buy-btn">
+                            Acquire on Selar
+                        </a>
+                    </div>
+                </article>
 
-    </main>
+                <!-- Book 3: DETOX -->
+                <article class="book-card reveal">
+                    <div class="book-cover-wrapper" style="background-color: #030303;">
+                        <div style="text-align: center; padding: 40px 20px;">
+                            <h3 style="font-size: clamp(32px, 5vw, 48px); font-weight: 900; margin: 0 0 10px 0; letter-spacing: 3px;">DETOX</h3>
+                            <p style="font-size: 11px; font-weight: 800; color: var(--terracotta); letter-spacing: 4px; text-transform: uppercase; margin: 0;">The Purge Manual</p>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <div class="book-status-badge" style="color: var(--text-muted);">Currently Authoring</div>
+                        <h2 class="book-title">DETOX</h2>
+                        <p class="book-description">
+                            A systematic analysis of habit loops, behavioral neuroscience, and structural personal recovery. This upcoming release details the concrete mechanics required to identify compulsive patterns, suppress destructive stress triggers, and rebuild true internal composure.
+                        </p>
+                        <a href="#" class="buy-btn disabled">
+                            In Production
+                        </a>
+                    </div>
+                </article>
 
-    <!-- Global Application & Animation Logic Engine Script -->
+            </section>
+        </main>
+    </div>
+
+    <!-- Active Behavioral Script Engine Layer -->
     <script>
+        const canvas = document.getElementById('ambient-fire-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class EmberParticle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 80;
+                this.size = Math.random() * 2.5 + 1;
+                this.speedY = Math.random() * 1.2 + 0.4;
+                this.speedX = Math.random() * 0.8 - 0.4;
+                this.opacity = Math.random() * 0.4 + 0.1;
+                this.color = Math.random() > 0.5 ? '#E04A33' : '#FF5733';
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                if (this.opacity > 0.003) this.opacity -= 0.0015;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function runParticleEngine() {
+            if (particles.length < 50) {
+                particles.push(new EmberParticle());
+            }
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].y < 0 || particles[i].opacity <= 0) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function drawLoopFrame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            runParticleEngine();
+            requestAnimationFrame(drawLoopFrame);
+        }
+        drawLoopFrame();
+
+        // Native Intersection Observer Framework for Entrance Revelations
         document.addEventListener("DOMContentLoaded", () => {
-            const scrollElements = document.querySelectorAll(".reveal");
-
-            const elementInView = (el, dividend = 1) => {
-                const elementTop = el.getBoundingClientRect().top;
-                return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
-            };
-
-            const displayScrollElement = (element) => {
-                element.classList.add("active");
-            };
-
-            const handleScrollAnimation = () => {
-                scrollElements.forEach((el) => {
-                    if (elementInView(el, 1.15)) {
-                        displayScrollElement(el);
+            const items = document.querySelectorAll(".reveal");
+            const observerHandler = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
                     }
                 });
-            };
+            }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
 
-            window.addEventListener("scroll", () => { 
-                handleScrollAnimation();
-            });
-
-            setTimeout(handleScrollAnimation, 150);
+            items.forEach(item => observerHandler.observe(item));
         });
     </script>
     <script src="js/main.js"></script>
