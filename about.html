@@ -172,7 +172,14 @@
             color: var(--terracotta);
         }
 
-        /* Core Call to Action Link button */
+        /* Booking Call-To-Action Button Row Styles System */
+        .booking-actions-row {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
         .action-link {
             display: inline-block;
             background-color: var(--terracotta);
@@ -186,12 +193,25 @@
             border-radius: 4px;
             transition: all 0.3s ease;
             width: fit-content;
+            text-align: center;
         }
         
         .action-link:hover {
             background-color: var(--pure-white);
             color: var(--matte-black);
             transform: translateY(-3px);
+        }
+
+        .action-link.secondary-btn {
+            background-color: transparent;
+            border: 2px solid var(--border-dark);
+            color: var(--pure-white);
+        }
+
+        .action-link.secondary-btn:hover {
+            border-color: var(--pure-white);
+            background-color: var(--pure-white);
+            color: var(--matte-black);
         }
 
         /* 7. New Connection Portals Grid Module */
@@ -277,6 +297,11 @@
                 width: 55%;
             }
 
+            .booking-actions-row {
+                flex-direction: row;
+                align-items: center;
+            }
+
             .social-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 20px;
@@ -339,7 +364,7 @@
 
                 <hr style="border: 0; border-top: 1px solid var(--border-dark); margin: 0;">
 
-                <!-- Pillar 2: Keynote Speaking & Life Coaching (Asymmetric Layout Shift) -->
+                <!-- Pillar 2: Keynote Speaking & Life Coaching ( बुकिंग इंटरफेस सुधार ) -->
                 <article class="pillar-row reverse reveal">
                     <div class="image-panel pillar-media">
                         <img src="WhatsApp Image 2026-05-27 at 03.33.40.jpeg" alt="Ogirima Obey Keynote Presentation" class="panel-img">
@@ -347,11 +372,16 @@
                     <div class="pillar-text-block">
                         <h2 class="pillar-title">Keynote Speaking & <span>Strategic Coaching</span></h2>
                         <p class="bio-text">
-                            Ogirima delivers hard-hitting, practical insights on structural discipline, operational leadership, and habit transformation on premium stages. His personal coaching programs strip away noise to help leaders break internal blockages and turn pressure into raw, organized professional capability.
+                            Ogirima delivers hard-hitting, practical insights on structural discipline, operational leadership, and habit transformation on premium stages. If you are looking to book a keynote speaking engagement or strategic coaching seminar, choose a direct booking path below to lock in scheduling requirements.
                         </p>
-                        <a href="ogirima@fundbridgeafrica.online?text=Hello%20Ogirima,%20I%20want%20to%20book%20you%20for%20a%20speaking/coaching%20session." target="_blank" class="action-link">
-                            Book Speaking Session
-                        </a>
+                        <div class="booking-actions-row">
+                            <a href="mailto:ogirima@fundbridgeafrica.online?subject=Keynote%20Speaker%20Booking%20Inquiry" class="action-link">
+                                Email Inquiry
+                            </a>
+                            <a href="https://wa.me/2349025643150?text=Hello%20Ogirima%20Obey%20Team,%20I%20want%20to%20book%20a%20keynote%20speaking%20session." target="_blank" class="action-link secondary-btn">
+                                Message Team on WhatsApp
+                            </a>
+                        </div>
                     </div>
                 </article>
 
