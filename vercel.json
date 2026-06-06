@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "routes": [
+    { "src": "^/index$", "dest": "/index.html" },
+    { "src": "^/about$", "dest": "/about.html" },
+    { "src": "^/books$", "dest": "/books.html" }
+  ]
+}
