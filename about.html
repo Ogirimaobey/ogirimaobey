@@ -5,35 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Ogirima Obey</title>
     
-    <!-- 1. Universal Favicon Mapping Configuration -->
-    <link rel="icon" type="image/jpeg" href="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
-    <link rel="apple-touch-icon" href="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
+    <!-- 1. Universal Favicon Mapping Configuration (Direct Root Mapping) -->
+    <link rel="icon" type="image/jpeg" href="WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
+    <link rel="apple-touch-icon" href="WhatsApp Image 2026-05-27 at 03.47.04.jpeg">
 
     <style>
-        /* 2. Global Core Variables & Reset Systems */
+        /* 2. Global Core Variables & Fluid System Setup */
         :root {
             --pure-white: #FFFFFF;
-            --matte-black: #000000;
+            --matte-black: #050505;
+            --deep-charcoal: #0F0F11;
             --terracotta: #E04A33;
-            --studio-grey: #F5F5F7;
-            --text-muted: #4A4A4A;
-            --border-light: #E5E5E5;
+            --text-muted: #8A8A93;
+            --border-dark: #1A1A1E;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body { 
-            margin: 0; 
-            padding: 0; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: var(--pure-white); 
-            color: var(--matte-black); 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: var(--matte-black); 
+            color: var(--pure-white); 
             overflow-x: hidden; 
+            line-height: 1.4;
         }
         
-        /* 3. Animation Framework Classes */
+        /* 3. Ambient Background Canvas System */
+        #ambient-fire-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.35;
+        }
+
+        /* 4. Core Layout Container System */
+        .page-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .page-container { 
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 100px 24px 60px 24px; 
+        }
+
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.active {
@@ -41,104 +71,29 @@
             transform: translateY(0);
         }
 
-        /* 4. Global Premium Header Navigation */
-        .main-header {
-            width: 100%;
-            border-bottom: 1px solid var(--border-light);
-            background-color: var(--pure-white);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--matte-black);
-        }
-
-        .nav-logo-img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid var(--terracotta);
-        }
-
-        .nav-logo-text {
-            font-size: 16px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--terracotta);
-        }
-
-        /* 5. Main Container Setup */
-        .page-container { 
-            width: 100%; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 48px 24px; 
-            box-sizing: border-box; 
-        }
-
-        /* 6. Section Header Styles */
+        /* 5. Section Header Styles */
         .section-header {
-            margin-bottom: 64px;
+            margin-bottom: 56px;
         }
         
         .section-tag {
             font-size: 11px; 
             font-weight: 800; 
-            letter-spacing: 3px; 
+            letter-spacing: 5px; 
             color: var(--terracotta); 
             text-transform: uppercase; 
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         
         .section-title {
-            font-size: 36px; 
+            font-size: clamp(40px, 8vw, 72px); 
             font-weight: 900; 
             text-transform: uppercase; 
-            margin: 0; 
-            letter-spacing: -1px;
-            line-height: 1.05;
+            letter-spacing: -2px;
+            line-height: 0.9;
         }
 
-        /* 7. Layout Sections - Mobile First Layout Block */
+        /* 6. Layout Sections - Mobile First Layout Block */
         .bio-section {
             display: flex;
             flex-direction: column;
@@ -146,28 +101,28 @@
             margin-bottom: 80px;
         }
         
-        /* Image Component Styles */
         .image-panel {
-            background-color: var(--studio-grey);
+            background-color: var(--deep-charcoal);
+            border: 1px solid var(--border-dark);
             width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            border-radius: 4px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
         }
         
         .panel-img {
             width: 100%;
-            height: auto;
-            max-height: 500px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 2px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            display: block;
+            filter: grayscale(100%);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Bio Content Text Formatting */
+        .image-panel:hover .panel-img {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
         .bio-content {
             display: flex;
             flex-direction: column;
@@ -175,39 +130,41 @@
         }
         
         .bio-lead {
-            font-size: 20px;
-            font-weight: bold;
-            line-height: 1.4;
-            margin: 0 0 24px 0;
-            color: var(--matte-black);
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
         
         .bio-text {
             font-size: 16px;
             color: var(--text-muted);
             line-height: 1.7;
-            margin: 0 0 24px 0;
+            margin-bottom: 24px;
         }
 
         /* Sub-sections Grid for Pillars */
         .pillars-grid {
             display: flex;
             flex-direction: column;
-            gap: 64px;
+            gap: 80px;
         }
         
         .pillar-row {
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 40px;
         }
         
         .pillar-title {
-            font-size: 24px;
+            font-size: clamp(24px, 4vw, 36px);
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: -0.5px;
-            margin: 0 0 16px 0;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            line-height: 1.1;
         }
         
         .pillar-title span {
@@ -217,13 +174,13 @@
         /* Core Call to Action Link button */
         .action-link {
             display: inline-block;
-            background-color: var(--matte-black);
+            background-color: var(--terracotta);
             color: var(--pure-white);
             text-decoration: none;
-            padding: 14px 32px;
-            font-weight: bold;
-            font-size: 13px;
-            letter-spacing: 1px;
+            padding: 16px 36px;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             border-radius: 4px;
             transition: all 0.3s ease;
@@ -231,22 +188,17 @@
         }
         
         .action-link:hover {
-            background-color: var(--terracotta);
+            background-color: var(--pure-white);
+            color: var(--matte-black);
+            transform: translateY(-3px);
         }
 
-        /* 8. Laptop-Fitted Balanced Layout Adjustments */
+        /* 7. Laptop-Fitted Balanced Layout Adjustments */
         @media (min-width: 768px) {
-            .nav-container {
-                flex-direction: row;
-                justify-content: space-between;
-                padding: 24px;
-                gap: 0;
+            .page-container {
+                padding-top: 140px;
             }
 
-            .section-title {
-                font-size: 56px;
-            }
-            
             .bio-section {
                 flex-direction: row;
                 gap: 64px;
@@ -255,7 +207,9 @@
             
             .image-panel {
                 width: 45%;
-                padding: 40px;
+                height: 58px;
+                aspect-ratio: auto;
+                height: 580px;
             }
             
             .bio-content {
@@ -268,13 +222,14 @@
                 align-items: center;
             }
 
-            /* Flips alternating rows on desktop for high-end asymmetrical balance */
             .pillar-row.reverse {
                 flex-direction: row-reverse;
             }
             
             .pillar-media {
                 width: 45%;
+                aspect-ratio: auto;
+                height: 480px;
             }
             
             .pillar-text-block {
@@ -285,130 +240,167 @@
 </head>
 <body>
 
-    <!-- Dynamic Layout Engine Top Navigation Header -->
-    <header class="main-header">
-        <nav class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="images/WhatsApp Image 2026-05-27 at 03.47.04.jpeg" alt="Ogirima Obey Logo" class="nav-logo-img">
-                <span class="nav-logo-text">Ogirima Obey</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="books.html">Books</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Ambient Fire Particle System Canvas Element -->
+    <canvas id="ambient-fire-canvas"></canvas>
 
-    <main class="page-container">
-        
-        <!-- Page Title Header Section -->
-        <section class="section-header reveal">
-            <div class="section-tag">The Profile</div>
-            <h1 class="section-title">Ogirima Obey</h1>
-        </section>
+    <!-- Target placeholder entry point for global main.js header deployment -->
+    <div id="global-header"></div>
 
-        <!-- Profile Intro Section -->
-        <section class="bio-section reveal">
-            <div class="image-panel">
-                <img src="images/WhatsApp Image 2026-05-27 at 03.32.36.jpeg" alt="Ogirima Obey Executive Portrait" class="panel-img">
-            </div>
-            <div class="bio-content">
-                <p class="bio-lead">
-                    Venture Builder, Healthtech Innovator, and President of the Men Aflame Network Global.
-                </p>
-                <p class="bio-text">
-                    Ogirima Obey operates at the critical intersection of systemic leadership, technological innovation, and human transformation. Driven by an unyielding passion for administrative excellence and leadership development, he dedicates his life to building global frameworks that empower organizations and unlock the true potential of men across generations.
-                </p>
-                <p class="bio-text">
-                    As a visionary builder, he challenges traditional limitations by designing clinical tech models and leading dynamic ecosystems that require deep strategic execution and world-class structural discipline.
-                </p>
-            </div>
-        </section>
-
-        <!-- Pillars System (Alternating Multi-column grids) -->
-        <section class="pillars-grid">
+    <div class="page-wrapper">
+        <main class="page-container">
             
-            <hr style="border: 0; border-top: 1px solid var(--border-light); margin: 0;">
+            <!-- Page Title Header Section -->
+            <section class="section-header reveal">
+                <div class="section-tag">The Profile</div>
+                <h1 class="section-title">Ogirima Obey</h1>
+            </section>
 
-            <!-- Pillar 1: Global Leadership Ecosystem -->
-            <article class="pillar-row reveal">
-                <div class="pillar-text-block" style="flex: 1;">
-                    <h2 class="pillar-title">Global Leadership & <span>Men Aflame Network</span></h2>
-                    <p class="bio-text">
-                        As the Global President of the Men Aflame Network (MAN), Ogirima leads a fast-growing, high-trust digital and physical academy. The network serves as a foundational safe space for hundreds of ambitious young men across the globe, providing the rigorous accountability, character blueprints, and spiritual execution required to rise above societal conditioning and build sustainable legacies.
-                    </p>
-                    <a href="https://wa.me/2349025643150?text=Hello%20Ogirima,%20I%20want%20to%20join%20the%20Men%20Aflame%20Network." target="_blank" class="action-link">
-                        Join the Brotherhood
-                    </a>
+            <!-- Profile Intro Section -->
+            <section class="bio-section reveal">
+                <div class="image-panel">
+                    <img src="WhatsApp Image 2026-05-27 at 03.32.36.jpeg" alt="Ogirima Obey Executive Portrait" class="panel-img">
                 </div>
-            </article>
-
-            <hr style="border: 0; border-top: 1px solid var(--border-light); margin: 0;">
-
-            <!-- Pillar 2: Keynote Speaking & Life Coaching (Asymmetric Layout Shift) -->
-            <article class="pillar-row reverse reveal">
-                <div class="image-panel pillar-media">
-                    <img src="images/WhatsApp Image 2026-05-27 at 03.33.40.jpeg" alt="Ogirima Obey Keynote Presentation" class="panel-img">
-                </div>
-                <div class="pillar-text-block">
-                    <h2 class="pillar-title">Keynote Speaking & <span>Life Coaching</span></h2>
+                <div class="bio-content">
+                    <h2 class="bio-lead">
+                        Venture Builder, Healthtech Founder, and President of the Men Aflame Network.
+                    </h2>
                     <p class="bio-text">
-                        Recognized as an authoritative keynote speaker and strategic life coach, Ogirima steps onto premium stages to deliver high-impact insights on systemic leadership, structural discipline, and behavioral change. His coaching programs are meticulously designed to transform internal blockages into raw professional output, mentoring leaders to dominate their focus areas with exceptional composure.
-                    </p>
-                    <a href="https://wa.me/2349025643150?text=Hello%20Ogirima,%20I%20want%20to%20book%20you%20for%20a%20speaking/coaching%20session." target="_blank" class="action-link">
-                        Book Speaking Session
-                    </a>
-                </div>
-            </article>
-
-            <hr style="border: 0; border-top: 1px solid var(--border-light); margin: 0;">
-
-            <!-- Pillar 3: Healthtech & Publications -->
-            <article class="pillar-row reveal">
-                <div class="pillar-text-block" style="flex: 1;">
-                    <h2 class="pillar-title">Venture Design & <span>Literature Archive</span></h2>
-                    <p class="bio-text">
-                        In the technology landscape, Ogirima is the founder of <strong>AfriDam AI</strong>, an advanced healthtech platform engineered specifically to provide precise dermatological diagnostics and safe skincare parameters for melanin-rich skin. 
+                        Ogirima Obey drives execution at the intersection of operational strategy, technological development, and human layout. He builds practical frameworks that empower systems and challenge conventional limits, focusing strictly on high-impact results and organizational execution.
                     </p>
                     <p class="bio-text">
-                        As an established author, his literature acts as a blueprint for human optimization. Having already published <em>Dear Future Wife</em> and the business guide <em>From Idea to Empire</em>, he is currently authoring his highly anticipated third book, <strong>DETOX</strong>—a definitive blueprint detailing the behavioral science and spiritual frameworks required to break free from negative habits and deep-seated addictions.
+                        As a builder, he designs digital platforms and leads structured networks that demand absolute personal discipline and strategic composure.
                     </p>
-                    <a href="books.html" class="action-link">Explore Literature</a>
                 </div>
-            </article>
+            </section>
 
-        </section>
+            <!-- Pillars System (Alternating Multi-column grids) -->
+            <section class="pillars-grid">
+                
+                <hr style="border: 0; border-top: 1px solid var(--border-dark); margin: 0;">
 
-    </main>
+                <!-- Pillar 1: Global Leadership Ecosystem -->
+                <article class="pillar-row reveal">
+                    <div class="pillar-text-block" style="flex: 1;">
+                        <h2 class="pillar-title">Global Leadership & <span>Men Aflame Network</span></h2>
+                        <p class="bio-text">
+                            As Global President of the Men Aflame Network, Ogirima runs a fast-growing, high-trust academy for ambitious men worldwide. The community provides the clear accountability, structural principles, and execution plans required to drop false pretenses, build character, and establish reliable long-term paths.
+                        </p>
+                        <a href="https://wa.me/2349025643150?text=Hello%20Ogirima,%20I%20want%20to%20join%20the%20Men%20Aflame%20Network." target="_blank" class="action-link">
+                            Join the Brotherhood
+                        </a>
+                    </div>
+                </article>
 
-    <!-- Global Application & Animation Logic Engine Script -->
+                <hr style="border: 0; border-top: 1px solid var(--border-dark); margin: 0;">
+
+                <!-- Pillar 2: Keynote Speaking & Life Coaching (Asymmetric Layout Shift) -->
+                <article class="pillar-row reverse reveal">
+                    <div class="image-panel pillar-media">
+                        <img src="WhatsApp Image 2026-05-27 at 03.33.40.jpeg" alt="Ogirima Obey Keynote Presentation" class="panel-img">
+                    </div>
+                    <div class="pillar-text-block">
+                        <h2 class="pillar-title">Keynote Speaking & <span>Strategic Coaching</span></h2>
+                        <p class="bio-text">
+                            Ogirima delivers hard-hitting, practical insights on structural discipline, operational leadership, and habit transformation on premium stages. His personal coaching programs strip away noise to help leaders break internal blockages and turn pressure into raw, organized professional capability.
+                        </p>
+                        <a href="https://wa.me/2349025643150?text=Hello%20Ogirima,%20I%20want%20to%20book%20you%20for%20a%20speaking/coaching%20session." target="_blank" class="action-link">
+                            Book Speaking Session
+                        </a>
+                    </div>
+                </article>
+
+                <hr style="border: 0; border-top: 1px solid var(--border-dark); margin: 0;">
+
+                <!-- Pillar 3: Venture Models & Publications -->
+                <article class="pillar-row reveal">
+                    <div class="pillar-text-block" style="flex: 1;">
+                        <h2 class="pillar-title">Venture Design & <span>Literature Archive</span></h2>
+                        <p class="bio-text">
+                            In technology, Ogirima founded <strong>AfriDam AI</strong>, an intelligent platform built to deliver precise diagnostic frameworks and skincare parameters for melanin-rich skin types. 
+                        </p>
+                        <p class="bio-text">
+                            As a published author, his works serve as core blueprints for personal strategy. Following the release of <em>Dear Future Wife</em> and the business guide <em>From Idea to Empire</em>, he is currently writing <strong>DETOX</strong>—a manual tracking the exact behavioral mechanics and frameworks required to break free from hidden habits and negative loops.
+                        </p>
+                        <a href="books.html" class="action-link">Explore Literature</a>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- Active Behavioral Script Engine Layer -->
     <script>
+        const canvas = document.getElementById('ambient-fire-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class EmberParticle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 80;
+                this.size = Math.random() * 2.5 + 1;
+                this.speedY = Math.random() * 1.2 + 0.4;
+                this.speedX = Math.random() * 0.8 - 0.4;
+                this.opacity = Math.random() * 0.4 + 0.1;
+                this.color = Math.random() > 0.5 ? '#E04A33' : '#FF5733';
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                if (this.opacity > 0.003) this.opacity -= 0.0015;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function runParticleEngine() {
+            if (particles.length < 50) {
+                particles.push(new EmberParticle());
+            }
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].y < 0 || particles[i].opacity <= 0) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function drawLoopFrame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            runParticleEngine();
+            requestAnimationFrame(drawLoopFrame);
+        }
+        drawLoopFrame();
+
+        // Native Intersection Observer Framework for Entrance Revelations
         document.addEventListener("DOMContentLoaded", () => {
-            const scrollElements = document.querySelectorAll(".reveal");
-
-            const elementInView = (el, dividend = 1) => {
-                const elementTop = el.getBoundingClientRect().top;
-                return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
-            };
-
-            const displayScrollElement = (element) => {
-                element.classList.add("active");
-            };
-
-            const handleScrollAnimation = () => {
-                scrollElements.forEach((el) => {
-                    if (elementInView(el, 1.15)) {
-                        displayScrollElement(el);
+            const items = document.querySelectorAll(".reveal");
+            const observerHandler = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
                     }
                 });
-            };
+            }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
 
-            window.addEventListener("scroll", () => { 
-                handleScrollAnimation();
-            });
-
-            setTimeout(handleScrollAnimation, 150);
+            items.forEach(item => observerHandler.observe(item));
         });
     </script>
     <script src="js/main.js"></script>
