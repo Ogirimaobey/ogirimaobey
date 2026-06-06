@@ -311,7 +311,54 @@
             line-height: 1.5;
         }
 
-        /* 9. The Stand Anchor Callout Canvas */
+        /* 9. Core Social Channels Integration Layer */
+        .social-arena-panel {
+            border-top: 1px solid var(--border-dark);
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-headline-block {
+            margin-bottom: 40px;
+        }
+
+        .social-channels-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .social-action-card {
+            background-color: var(--deep-charcoal);
+            border: 1px solid var(--border-dark);
+            padding: 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--pure-white);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .social-action-card:hover {
+            border-color: var(--terracotta);
+            transform: translateY(-3px);
+        }
+
+        .social-action-card h3 {
+            font-size: 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .social-action-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* 10. The Stand Anchor Callout Canvas */
         .anchor-canvas {
             padding: 140px 24px;
             text-align: center;
@@ -335,7 +382,7 @@
             color: var(--terracotta);
         }
 
-        /* 10. Laptop-Fitted Desktop Scale Configurations Override */
+        /* 11. Laptop-Fitted Desktop Scale Configurations Override */
         @media (min-width: 768px) {
             .hero-arena {
                 flex-direction: row;
@@ -384,6 +431,11 @@
                 gap: 40px;
             }
 
+            .social-channels-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+
             .anchor-canvas {
                 padding: 180px 40px;
             }
@@ -424,7 +476,7 @@
                     <h2 class="manifesto-headline">President At The Men Aflame Network</h2>
                     <div class="manifesto-body-text">
                         <p style="margin-bottom: 20px;">Ogirima Obey is a thought leader and the president of the MAN.</p>
-                        <p>Lead Visionary at Afridam AI, Pan Africa Movement at F-Bridge Africa.</p>
+                        <p>Lead Visionary at Afridam AI, Venture Builder at Fundbridge Consultation Ltd.</p>
                     </div>
                 </div>
             </div>
@@ -484,12 +536,46 @@
             </div>
         </section>
 
-        <!-- Module 5: The Stand Anchor Callout Canvas -->
+        <!-- Module 5: Integrated Social Channels Platform Grid -->
+        <section class="social-arena-panel reveal">
+            <div class="social-headline-block">
+                <div class="panel-label">Digital Ecosystem</div>
+                <h2 class="hero-title" style="font-size: clamp(32px, 6vw, 56px); margin: 16px 0 0 0;">Connect Globally</h2>
+            </div>
+            
+            <div class="social-channels-grid">
+                <!-- Facebook Gateway -->
+                <a href="https://www.facebook.com/share/1Ezhygu8P5/?mibextid=wwXIfr" target="_blank" class="social-action-card">
+                    <h3>Facebook</h3>
+                    <p>Access the main community page.</p>
+                </a>
+
+                <!-- Instagram Gateway -->
+                <a href="https://www.instagram.com/ogirimaobey?igsh=bzAzN2R6NHV6dTIw&utm_source=qr" target="_blank" class="social-action-card">
+                    <h3>Instagram</h3>
+                    <p>Track media drops and focus updates.</p>
+                </a>
+
+                <!-- Twitter / X Gateway -->
+                <a href="https://x.com/obeyogirima?s=21" target="_blank" class="social-action-card">
+                    <h3>Twitter / X</h3>
+                    <p>Read current real-time thought streams.</p>
+                </a>
+
+                <!-- LinkedIn Gateway -->
+                <a href="https://linkedin.com/in/obey-ezekiel-453904280" target="_blank" class="social-action-card">
+                    <h3>LinkedIn</h3>
+                    <p>Review business builder project networks.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Module 6: The Stand Anchor Callout Canvas -->
         <section class="anchor-canvas">
             <div class="anchor-wrapper reveal">
                 <div class="statement-tag" style="font-size: 11px; font-weight: 800; color: var(--terracotta); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 24px;">The Measure of Maturity</div>
                 <blockquote class="anchor-quote">
-                    "True masculine capacity is <span>tested</span>. by what you are willing to sacrifice out of obedience to a <span>higher call.</span>."
+                    "True masculine capacity is <span>tested</span> by what you are willing to sacrifice out of obedience to a <span>higher call.</span>"
                 </blockquote>
             </div>
         </section>
